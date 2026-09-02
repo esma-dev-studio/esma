@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>オンライン院試塾 esma | 最短距離で院試を突破</title>
+<meta name="description" content="講師は全員、東大などの難関大学院の院試経験者。1対1のオーダーメイド指導で、今からでも憧れの大学院に間に合います。全8回99,800円・受講生満足度96%・3大保証。まずは無料説明会へ。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="オンライン院試塾 esma | 最短距離で院試を突破">
+<meta property="og:description" content="講師は全員、難関大学院の院試経験者。1対1のオーダーメイド指導で、今からでも憧れの大学院に間に合います。まずは無料説明会へ。">
+<meta property="og:site_name" content="オンライン院試塾 esma">
+<meta property="og:locale" content="ja_JP">
+<meta name="theme-color" content="#0fb5a6">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 92'%3E%3Cpolygon points='50,4 61.4,24 38.6,24' fill='%23ffd400'/%3E%3Cpolygon points='36.9,27 63.1,27 74,46 26,46' fill='%231aa9dc'/%3E%3Cpolygon points='24.3,49 75.7,49 86.6,68 13.4,68' fill='%231aa9dc'/%3E%3Cpolygon points='11.7,71 88.3,71 98,88 2,88' fill='%231aa9dc'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #0fb5a6;
+    --teal-2: #14c8b4;
+    --teal-deep: #0b8f84;
+    --teal-ink: #0f6e66;
+    --teal-soft: #d7f5f1;
+    --green: #2ec27e;
+    --lime: #a3e635;
+    --pink: #ec407a;
+    --pink-2: #ff6b9d;
+    --pink-soft: #fde8ef;
+    --navy: #14213d;
+    --navy-2: #1f2a44;
+    --text: #2b3445;
+    --muted: #6b7280;
+    --line: #dfe7ea;
+    --bg: #f3fbfa;
+    --bg-2: #e6f6f4;
+    --white: #ffffff;
+    --gold: #f5b301;
+    --blue: #1aa9dc;
+    --yellow: #ffd400;
+    --red: #e0334a;
+    --shadow: 0 20px 50px rgba(15, 110, 102, 0.12);
+    --shadow-sm: 0 6px 20px rgba(15, 110, 102, 0.08);
+    --radius: 22px;
+    --max: 1120px;
+    --ease: cubic-bezier(.2, .8, .2, 1);
+    --font-en: 'Outfit', 'Noto Sans JP', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.8;
+    font-feature-settings: "palt";
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  ul { list-style: none; }
+  .en { font-family: var(--font-en); }
+
+  .container { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+  .narrow { max-width: 860px; }
+  .sp { display: inline; }
+
+  /* ================= progress bar ================= */
+  .progress {
+    position: fixed; top: 0; left: 0; height: 3px; width: 100%; z-index: 100;
+    background: transparent; pointer-events: none;
+  }
+  .progress span {
+    display: block; height: 100%; width: 100%;
+    background: linear-gradient(90deg, var(--teal), var(--green), var(--pink));
+    transform-origin: left; transform: scaleX(0);
+  }
+
+  /* ================= header ================= */
+  .header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    transition: background .35s, box-shadow .35s, backdrop-filter .35s;
+  }
+  .header.scrolled {
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 1px 0 rgba(15,110,102,0.08), 0 10px 30px rgba(15,110,102,0.06);
+  }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .logo { display: inline-flex; align-items: center; gap: 9px; }
+  .logo svg { width: 34px; height: 32px; transition: transform .5s var(--ease); }
+  .logo:hover svg { transform: translateY(-2px) scale(1.08); }
+  .pyra .tier { fill: var(--blue); }
+  .pyra .tier.top { fill: var(--yellow); }
+  .logo:hover .pyra .tier { animation: tier-pop .6s var(--ease); }
+  .logo:hover .pyra .tier:nth-child(3) { animation-delay: .06s; }
+  .logo:hover .pyra .tier:nth-child(2) { animation-delay: .12s; }
+  .logo:hover .pyra .tier:nth-child(1) { animation-delay: .18s; }
+  @keyframes tier-pop { 0% { transform: translateY(6px); opacity: 0; } 100% { transform: none; opacity: 1; } }
+
+  /* big pyramid in hero */
+  .hero-pyra {
+    position: absolute; right: -6%; bottom: -4%; width: min(62vw, 560px); pointer-events: none; z-index: 0;
+    opacity: .16; animation: float-p 7s ease-in-out infinite;
+  }
+  .hero-pyra .tier { fill: var(--blue); transform-origin: 50% 100%; opacity: 0; animation: tier-rise .9s var(--ease) forwards; }
+  .hero-pyra .tier.top { fill: var(--yellow); }
+  .hero-pyra .tier:nth-child(4) { animation-delay: .3s; }
+  .hero-pyra .tier:nth-child(3) { animation-delay: .5s; }
+  .hero-pyra .tier:nth-child(2) { animation-delay: .7s; }
+  .hero-pyra .tier:nth-child(1) { animation-delay: .95s; }
+  @keyframes tier-rise { 0% { transform: translateY(30px) scaleY(.6); opacity: 0; } 100% { transform: none; opacity: 1; } }
+  @keyframes float-p { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+  .logo-text { font-family: var(--font-en); font-size: 27px; font-weight: 900; letter-spacing: 2px; color: var(--navy); line-height: 1; }
+  .logo-sub { font-size: 11px; color: var(--muted); font-weight: 500; margin-left: 4px; }
+  .nav { display: none; gap: 28px; font-size: 14px; font-weight: 700; color: var(--navy-2); }
+  .nav a { position: relative; padding: 4px 0; }
+  .nav a::after {
+    content: ""; position: absolute; left: 0; bottom: 0; width: 100%; height: 2px;
+    background: linear-gradient(90deg, var(--teal), var(--green));
+    transform: scaleX(0); transform-origin: right; transition: transform .35s var(--ease);
+  }
+  .nav a:hover::after { transform: scaleX(1); transform-origin: left; }
+  .header-cta {
+    display: none; position: relative; overflow: hidden;
+    background: linear-gradient(90deg, var(--pink), var(--pink-2)); color: #fff; font-weight: 700; font-size: 14px;
+    padding: 11px 22px; border-radius: 999px;
+    box-shadow: 0 8px 20px rgba(236, 64, 122, 0.30);
+    transition: transform .2s var(--ease), box-shadow .2s;
+  }
+  .header-cta:hover { transform: translateY(-2px); box-shadow: 0 14px 26px rgba(236,64,122,0.38); }
+
+  /* ================= buttons ================= */
+  .btn {
+    position: relative; overflow: hidden; isolation: isolate;
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    background: linear-gradient(90deg, #ff5e7e 0%, #ff8a3d 100%);
+    color: #fff; font-weight: 900; font-size: 17px;
+    padding: 18px 36px; border-radius: 999px; border: 0; cursor: pointer;
+    box-shadow: 0 14px 30px rgba(255, 94, 126, 0.38);
+    transition: transform .25s var(--ease), box-shadow .25s;
+    white-space: nowrap;
+  }
+  .btn::before {
+    content: ""; position: absolute; inset: 0; z-index: -1;
+    background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,0.45) 50%, transparent 70%);
+    transform: translateX(-120%); animation: shimmer 3.2s ease-in-out infinite;
+  }
+  .btn:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 20px 40px rgba(255, 94, 126, 0.48); }
+  .btn:active { transform: translateY(0) scale(.99); }
+  .btn .arrow { width: 18px; height: 18px; transition: transform .3s var(--ease); }
+  .btn:hover .arrow { transform: translateY(3px); }
+  .btn-lg { font-size: 19px; padding: 21px 46px; }
+  .btn-white { background: #fff; color: var(--teal-deep); box-shadow: 0 14px 30px rgba(0,0,0,0.18); }
+  .btn-white:hover { box-shadow: 0 20px 40px rgba(0,0,0,0.24); }
+  .btn-note { display: block; margin-top: 12px; font-size: 13px; color: var(--muted); }
+  .pulse { position: relative; }
+  .pulse::after {
+    content: ""; position: absolute; inset: -4px; border-radius: 999px; z-index: -2;
+    border: 2px solid rgba(255,94,126,0.6);
+    animation: pulse-ring 2.2s ease-out infinite;
+  }
+  @keyframes pulse-ring {
+    0% { transform: scale(0.96); opacity: .9; }
+    100% { transform: scale(1.18); opacity: 0; }
+  }
+  @keyframes shimmer {
+    0% { transform: translateX(-120%); }
+    45%, 100% { transform: translateX(120%); }
+  }
+
+  /* ================= hero ================= */
+  .hero {
+    position: relative; overflow: hidden; text-align: center;
+    padding: 112px 0 72px; display: flex; align-items: center;
+    background: linear-gradient(180deg, #f8fefd 0%, var(--bg-2) 100%);
+  }
+  .aurora { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+  .aurora span {
+    position: absolute; border-radius: 50%; filter: blur(60px); opacity: .55; will-change: transform;
+    animation: drift 14s ease-in-out infinite alternate;
+  }
+  .aurora .a1 { width: 520px; height: 520px; left: -140px; top: -120px; background: radial-gradient(circle, #5eead4, transparent 65%); }
+  .aurora .a2 { width: 460px; height: 460px; right: -120px; top: 10%; background: radial-gradient(circle, #f9a8d4, transparent 65%); animation-delay: -4s; animation-duration: 17s; }
+  .aurora .a3 { width: 480px; height: 480px; left: 30%; bottom: -220px; background: radial-gradient(circle, #a7f3d0, transparent 65%); animation-delay: -8s; animation-duration: 20s; }
+  .aurora .a4 { width: 320px; height: 320px; right: 20%; bottom: 5%; background: radial-gradient(circle, #fde68a, transparent 65%); opacity: .35; animation-delay: -2s; }
+  @keyframes drift {
+    0% { transform: translate3d(0,0,0) scale(1); }
+    50% { transform: translate3d(40px, -30px, 0) scale(1.08); }
+    100% { transform: translate3d(-30px, 40px, 0) scale(.96); }
+  }
+  .grid-bg {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image: radial-gradient(rgba(15,110,102,0.14) 1px, transparent 1px);
+    background-size: 26px 26px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 75%);
+  }
+  .ring {
+    position: absolute; border-radius: 50%; pointer-events: none;
+    border: 1.5px solid rgba(15,181,166,0.18);
+    animation: spin 40s linear infinite;
+  }
+  .ring::before { content: ""; position: absolute; width: 12px; height: 12px; border-radius: 50%; background: var(--teal); top: -6px; left: 50%; box-shadow: 0 0 20px var(--teal); }
+  .ring.r1 { width: 640px; height: 640px; left: -260px; top: -220px; }
+  .ring.r2 { width: 520px; height: 520px; right: -220px; bottom: -180px; border-color: rgba(236,64,122,0.18); animation-direction: reverse; animation-duration: 55s; }
+  .ring.r2::before { background: var(--pink); box-shadow: 0 0 20px var(--pink); }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .hero .container { position: relative; z-index: 1; width: 100%; }
+  .hero-anim { opacity: 0; transform: translateY(26px); animation: rise .9s var(--ease) forwards; }
+  .d1 { animation-delay: .05s; } .d2 { animation-delay: .2s; } .d3 { animation-delay: .35s; }
+  .d4 { animation-delay: .5s; } .d5 { animation-delay: .65s; } .d6 { animation-delay: .8s; } .d7 { animation-delay: 1s; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+
+  .badge-hot {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: linear-gradient(90deg, var(--pink), var(--pink-2));
+    color: #fff; font-size: 13px; font-weight: 700;
+    padding: 8px 18px; border-radius: 999px;
+    box-shadow: 0 8px 18px rgba(236,64,122,0.32);
+    margin-bottom: 24px;
+  }
+  .badge-hot .dot { width: 8px; height: 8px; border-radius: 50%; background: #fff; animation: blink 1.4s ease-in-out infinite; }
+  @keyframes blink { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: .4; transform: scale(.7); } }
+
+  .hero-title {
+    font-size: clamp(22px, 5.9vw, 50px);
+    font-weight: 900; line-height: 1.45; color: var(--navy);
+    letter-spacing: 0.01em;
+  }
+  .hero-title .t { color: var(--teal-deep); }
+  .hero-title .p { color: var(--pink); }
+  .hero-sub {
+    margin-top: 12px; display: inline-block; position: relative;
+    font-size: clamp(31px, 7.6vw, 64px);
+    font-weight: 900; line-height: 1.25; letter-spacing: 0.02em;
+    background: linear-gradient(90deg, var(--teal-deep), var(--teal), var(--green), var(--teal-deep));
+    background-size: 300% 100%;
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: rise .9s var(--ease) .35s forwards, gradient-move 6s linear 1.2s infinite;
+  }
+  @keyframes gradient-move { to { background-position: 300% 0; } }
+  .hero-sub svg {
+    position: absolute; left: 0; right: 0; bottom: -10px; width: 100%; height: 18px; overflow: visible;
+  }
+  .hero-sub svg path {
+    fill: none; stroke: var(--pink); stroke-width: 6; stroke-linecap: round;
+    stroke-dasharray: 1000; stroke-dashoffset: 1000;
+    animation: draw 1.1s var(--ease) 1.1s forwards;
+  }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+
+  .hero-card {
+    margin: 36px auto 0; max-width: 740px; position: relative;
+    background: rgba(255,255,255,0.72);
+    border: 1px solid rgba(255,255,255,0.9);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border-radius: var(--radius); padding: 26px 22px;
+    box-shadow: var(--shadow);
+    transform-style: preserve-3d;
+  }
+  .hero-card::before {
+    content: ""; position: absolute; inset: -1px; border-radius: inherit; padding: 1px; z-index: -1;
+    background: linear-gradient(120deg, rgba(15,181,166,.6), rgba(236,64,122,.5), rgba(46,194,126,.6));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+  }
+  .hero-card .lead { font-size: 15px; font-weight: 700; color: var(--navy); }
+  .hero-card .lead .t { color: var(--teal-deep); }
+  .hero-card .lead .p { color: var(--pink); }
+  .hero-card .brand { margin-top: 6px; font-size: clamp(22px, 5vw, 34px); font-weight: 900; color: var(--navy); line-height: 1.4; }
+  .hero-card .brand .esma { font-family: var(--font-en); color: var(--teal); font-size: 1.35em; letter-spacing: 1px; }
+  .hero-cta { margin-top: 32px; }
+  .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 36px auto 0; max-width: 780px; }
+  .stat {
+    background: rgba(255,255,255,0.7); border: 1px solid rgba(15,181,166,0.2);
+    border-radius: 16px; padding: 14px 8px; backdrop-filter: blur(8px);
+    transition: transform .3s var(--ease), box-shadow .3s;
+  }
+  .stat:hover { transform: translateY(-4px); box-shadow: var(--shadow-sm); }
+  .stat .num { font-family: var(--font-en); font-size: clamp(24px, 5.4vw, 38px); font-weight: 800; color: var(--teal-deep); line-height: 1.1; }
+  .stat .num small { font-size: 0.5em; margin-left: 2px; font-family: inherit; }
+  .stat .lbl { font-size: 12px; color: var(--muted); font-weight: 700; margin-top: 4px; }
+  .scroll-cue {
+    position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%);
+    display: none; flex-direction: column; align-items: center; gap: 6px;
+    font-family: var(--font-en); font-size: 11px; letter-spacing: .25em; color: var(--teal-deep); z-index: 1;
+  }
+  .scroll-cue i { width: 1px; height: 44px; background: linear-gradient(var(--teal), transparent); position: relative; overflow: hidden; }
+  .scroll-cue i::after { content: ""; position: absolute; left: 0; top: -44px; width: 1px; height: 44px; background: var(--navy); animation: cue 1.8s ease-in-out infinite; }
+  @keyframes cue { to { top: 44px; } }
+
+  /* ================= ticker ================= */
+  .ticker {
+    position: relative; overflow: hidden; background: var(--navy); color: #fff;
+    padding: 14px 0; font-family: var(--font-en); font-weight: 700; letter-spacing: .08em; font-size: 14px;
+    border-top: 1px solid rgba(255,255,255,.08);
+  }
+  .ticker-track { display: flex; gap: 0; width: max-content; animation: marquee 32s linear infinite; }
+  .ticker span { display: inline-flex; align-items: center; gap: 22px; padding: 0 22px; white-space: nowrap; }
+  .ticker span::after { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 12px var(--teal); }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+
+  /* ================= sections ================= */
+  section { position: relative; padding: 80px 0; overflow: hidden; }
+  .sec-white { background: var(--white); }
+  .sec-tint { background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%); }
+  .sec-navy { background: radial-gradient(900px 500px at 10% 0%, rgba(20,200,180,.25), transparent 60%), linear-gradient(160deg, #0f2f3a 0%, #0f6e66 100%); color: #fff; }
+  .sec-head { text-align: center; margin-bottom: 44px; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: var(--font-en); font-size: 12px; font-weight: 700; letter-spacing: 0.28em;
+    color: var(--teal-deep); text-transform: uppercase; margin-bottom: 12px;
+  }
+  .eyebrow::before, .eyebrow::after { content: ""; width: 26px; height: 1px; background: currentColor; opacity: .5; }
+  .sec-navy .eyebrow { color: #9fe8df; }
+  .sec-title {
+    font-size: clamp(22px, 4.6vw, 38px); font-weight: 900; line-height: 1.5; color: var(--navy);
+    letter-spacing: 0.02em;
+  }
+  .sec-navy .sec-title { color: #fff; }
+  .sec-title .t { color: var(--teal-deep); }
+  .sec-title .p { color: var(--pink); }
+  .sec-title .g { color: var(--gold); }
+  .sec-title .num { font-family: var(--font-en); font-size: 1.4em; color: var(--pink); }
+  .sec-title .hl { position: relative; display: inline-block; }
+  .sec-title .hl::after {
+    content: ""; position: absolute; left: -2px; right: -2px; bottom: 4px; height: 38%; z-index: -1;
+    background: linear-gradient(90deg, rgba(15,181,166,.28), rgba(46,194,126,.28));
+    transform: scaleX(0); transform-origin: left; transition: transform .8s var(--ease) .3s;
+  }
+  .in .sec-title .hl::after, .sec-title.in .hl::after { transform: scaleX(1); }
+  .sec-lead { margin-top: 14px; color: var(--muted); font-size: 15px; }
+  .watermark {
+    position: absolute; left: 50%; top: 40px; transform: translateX(-50%);
+    font-family: var(--font-en); font-weight: 900; font-size: clamp(80px, 16vw, 200px); line-height: 1;
+    color: rgba(15,110,102,0.05); pointer-events: none; user-select: none; white-space: nowrap; letter-spacing: .04em;
+  }
+  .sec-navy .watermark { color: rgba(255,255,255,0.05); }
+
+  /* ================= reveal ================= */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+  .reveal.in { opacity: 1; transform: none; }
+  [data-stagger] > * { opacity: 0; transform: translateY(24px) scale(.98); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+  [data-stagger].in > * { opacity: 1; transform: none; }
+
+  /* ================= guarantees ================= */
+  .satisfaction {
+    position: relative; display: inline-flex; flex-direction: column; align-items: center; justify-content: center;
+    width: 140px; height: 140px; border-radius: 50%; margin-bottom: 22px;
+    background: var(--white); box-shadow: 0 14px 30px rgba(245,179,1,0.22);
+  }
+  .satisfaction svg { position: absolute; inset: -6px; width: calc(100% + 12px); height: calc(100% + 12px); transform: rotate(-90deg); }
+  .satisfaction circle { fill: none; stroke-width: 6; stroke-linecap: round; }
+  .satisfaction .track { stroke: #fff3cc; }
+  .satisfaction .bar { stroke: var(--gold); stroke-dasharray: 440; stroke-dashoffset: 440; transition: stroke-dashoffset 1.6s var(--ease) .2s; }
+  .in .satisfaction .bar { stroke-dashoffset: 18; }
+  .satisfaction .num { font-family: var(--font-en); font-size: 44px; font-weight: 800; color: var(--pink); line-height: 1; }
+  .satisfaction .num small { font-size: 18px; }
+  .satisfaction .lbl { font-size: 11px; font-weight: 700; color: var(--navy); margin-top: 4px; }
+  .guarantees { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .g-card {
+    position: relative; overflow: hidden;
+    background: var(--white); border-radius: var(--radius); padding: 28px 12px 24px;
+    text-align: center; box-shadow: var(--shadow-sm); border: 1px solid var(--line);
+    transition: transform .35s var(--ease), box-shadow .35s;
+  }
+  .g-card::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 5px; background: linear-gradient(90deg, var(--teal), var(--green)); }
+  .g-card::after {
+    content: ""; position: absolute; width: 160px; height: 160px; border-radius: 50%; right: -70px; bottom: -70px;
+    background: radial-gradient(circle, rgba(15,181,166,.14), transparent 70%);
+  }
+  .g-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+  .g-card .tag { display: inline-block; font-family: var(--font-en); background: var(--teal-soft); color: var(--teal-ink); font-size: 12px; font-weight: 700; padding: 3px 12px; border-radius: 999px; margin-bottom: 12px; letter-spacing: .05em; }
+  .g-card .title { font-size: clamp(17px, 3.8vw, 26px); font-weight: 900; color: var(--navy); line-height: 1.35; }
+  .g-card .title .t { color: var(--teal-deep); }
+  .g-card .sub { font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.5; }
+  .campaign {
+    margin-top: 28px; text-align: center; position: relative; overflow: hidden;
+    background: linear-gradient(135deg, #fff, #fff5f8); border: 2px dashed var(--pink);
+    border-radius: 16px; padding: 20px 16px;
+  }
+  .campaign p { font-size: clamp(17px, 4vw, 26px); font-weight: 900; color: var(--navy); }
+  .campaign .price { font-family: var(--font-en); color: var(--pink); font-size: 1.3em; }
+
+  /* ================= problems ================= */
+  .problems { display: grid; grid-template-columns: 1fr; gap: 10px; }
+  .pb-card {
+    position: relative; overflow: hidden;
+    background: var(--white); border-radius: 18px; padding: 14px 16px;
+    box-shadow: var(--shadow-sm); display: flex; flex-direction: row; align-items: center; text-align: left; gap: 14px;
+    border: 1px solid var(--line);
+    transition: transform .35s var(--ease), box-shadow .35s, border-color .35s;
+  }
+  .pb-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: rgba(15,181,166,.4); }
+  .pb-icon {
+    flex: 0 0 50px; width: 50px; height: 50px; border-radius: 15px; display: grid; place-items: center;
+    background: linear-gradient(135deg, var(--teal-soft), #e9fbf7); color: var(--teal-deep);
+    transition: transform .4s var(--ease), background .3s, color .3s;
+  }
+  .pb-card:hover .pb-icon { transform: rotate(-8deg) scale(1.08); background: linear-gradient(135deg, var(--teal), var(--green)); color: #fff; }
+  .pb-icon svg { width: 24px; height: 24px; }
+  .pb-card p { font-size: 14px; font-weight: 700; color: var(--navy); line-height: 1.6; }
+  .pb-card p br { display: none; }
+  .problems-arrow { text-align: center; margin: 30px 0 0; color: var(--teal-deep); }
+  .problems-arrow svg { width: 40px; height: 40px; animation: bob 1.6s ease-in-out infinite; }
+  @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+  .problems-answer { margin-top: 6px; text-align: center; font-size: clamp(19px, 4.6vw, 30px); font-weight: 900; color: var(--navy); }
+  .problems-answer .t { font-family: var(--font-en); color: var(--teal-deep); font-size: 1.15em; }
+
+  /* ================= features ================= */
+  .features { display: grid; gap: 16px; }
+  .ft {
+    position: relative; overflow: hidden;
+    display: grid; grid-template-columns: 64px 1fr; gap: 16px; align-items: start;
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.16);
+    backdrop-filter: blur(6px);
+    border-radius: var(--radius); padding: 24px 20px;
+    transition: transform .35s var(--ease), background .35s, border-color .35s;
+  }
+  .ft::after {
+    content: ""; position: absolute; right: -60px; top: -60px; width: 200px; height: 200px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(46,194,126,.28), transparent 70%); transition: transform .5s var(--ease);
+  }
+  .ft:hover { transform: translateY(-4px); background: rgba(255,255,255,0.11); border-color: rgba(255,255,255,0.3); }
+  .ft:hover::after { transform: scale(1.4); }
+  .ft .n {
+    font-family: var(--font-en); width: 64px; height: 64px; border-radius: 20px; display: grid; place-items: center;
+    background: linear-gradient(135deg, var(--teal), var(--green));
+    color: #fff; font-size: 30px; font-weight: 800; box-shadow: 0 10px 22px rgba(0,0,0,0.28);
+  }
+  .ft h3 { font-size: clamp(18px, 4vw, 23px); font-weight: 900; color: #fff; line-height: 1.4; }
+  .ft h3 .g { color: var(--gold); }
+  .ft p { margin-top: 6px; font-size: 14px; color: rgba(255,255,255,0.85); }
+  .orb { position: absolute; border-radius: 50%; filter: blur(50px); opacity: .5; pointer-events: none; animation: drift 16s ease-in-out infinite alternate; }
+  .orb.o1 { width: 380px; height: 380px; left: -120px; bottom: -120px; background: #14c8b4; }
+  .orb.o2 { width: 320px; height: 320px; right: -80px; top: -80px; background: #2ec27e; animation-delay: -6s; }
+
+  /* ================= program ================= */
+  .program { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .pg {
+    position: relative; overflow: hidden;
+    display: flex; align-items: center; gap: 12px;
+    background: var(--white); border-radius: 16px; padding: 16px 14px;
+    box-shadow: var(--shadow-sm); border: 1px solid var(--line);
+    transition: transform .35s var(--ease), box-shadow .35s;
+  }
+  .pg::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(var(--teal), var(--green)); }
+  .pg:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+  .pg .n {
+    font-family: var(--font-en); flex: 0 0 40px; width: 40px; height: 40px; border-radius: 12px;
+    background: linear-gradient(135deg, var(--teal), var(--green)); color: #fff; font-weight: 800; display: grid; place-items: center; font-size: 17px;
+    box-shadow: 0 6px 14px rgba(15,181,166,.35);
+  }
+  .pg p { font-size: 14px; font-weight: 700; color: var(--navy); line-height: 1.5; }
+  .pg .bg-n {
+    position: absolute; right: -6px; bottom: -22px; font-family: var(--font-en); font-weight: 900; font-size: 84px; line-height: 1;
+    color: rgba(15,110,102,0.05); pointer-events: none;
+  }
+  .program-note { margin-top: 24px; text-align: center; font-size: 14px; color: var(--muted); }
+  .program-note b { color: var(--teal-deep); }
+  .program-bar { height: 4px; background: rgba(15,110,102,.1); border-radius: 999px; margin: 0 auto 36px; max-width: 520px; overflow: hidden; }
+  .program-bar span { display: block; height: 100%; width: 100%; background: linear-gradient(90deg, var(--teal), var(--green), var(--pink)); transform: scaleX(0); transform-origin: left; transition: transform 1.4s var(--ease); }
+  .in .program-bar span { transform: scaleX(1); }
+
+  /* ================= value ================= */
+  .values { display: grid; gap: 14px; position: relative; }
+  .vl {
+    position: relative; overflow: hidden;
+    background: var(--white); border-radius: var(--radius); padding: 26px 22px; box-shadow: var(--shadow-sm);
+    border: 1px solid var(--line); transition: transform .35s var(--ease), box-shadow .35s;
+  }
+  .vl:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+  .vl .big { position: absolute; right: 10px; top: -14px; font-family: var(--font-en); font-weight: 900; font-size: 92px; line-height: 1; color: rgba(236,64,122,0.07); pointer-events: none; }
+  .vl-head { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .vl-head .n {
+    font-family: var(--font-en); width: 42px; height: 42px; border-radius: 13px; background: linear-gradient(135deg, var(--pink), var(--pink-2)); color: #fff;
+    display: grid; place-items: center; font-weight: 800; font-size: 19px; flex: 0 0 42px; box-shadow: 0 8px 16px rgba(236,64,122,.3);
+  }
+  .vl-head h3 { font-size: 19px; font-weight: 900; color: var(--navy); }
+  .vl p { font-size: 14px; color: var(--text); }
+  .vl-arrow { text-align: center; color: var(--teal-deep); margin: -4px 0; }
+  .vl-arrow svg { width: 30px; height: 30px; animation: bob 1.6s ease-in-out infinite; }
+  .value-result {
+    margin-top: 28px; text-align: center; position: relative; overflow: hidden;
+    background: linear-gradient(135deg, #fff8e1, #fff1c2);
+    border: 2px solid var(--gold); border-radius: var(--radius); padding: 30px 20px;
+  }
+  .value-result::before {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(110deg, transparent 40%, rgba(255,255,255,.7) 50%, transparent 60%);
+    transform: translateX(-120%); animation: shimmer 4s ease-in-out infinite;
+  }
+  .value-result p { position: relative; font-size: clamp(20px, 4.8vw, 34px); font-weight: 900; color: var(--navy); line-height: 1.5; }
+  .value-result p .r { color: var(--red); }
+
+  /* ================= persuasion components ================= */
+  .deadline {
+    display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px 14px;
+    margin: 26px auto 0; padding: 12px 20px; border-radius: 999px;
+    background: rgba(255,255,255,0.8); border: 1px solid rgba(255,94,126,.35);
+    box-shadow: 0 8px 20px rgba(255,94,126,.12); backdrop-filter: blur(8px);
+    font-size: 13px; font-weight: 700; color: var(--navy);
+  }
+  .deadline .dl-num { font-size: 15px; color: #e8365f; }
+  .deadline .dl-num b { font-size: 26px; font-weight: 800; line-height: 1; }
+  .deadline .dl-msg { font-size: 12px; color: var(--muted); font-weight: 500; width: 100%; text-align: center; }
+  .scarcity { margin-top: 8px; font-size: 13px; font-weight: 500; color: var(--muted); }
+  .scarcity b { color: #e8365f; }
+
+  .diag { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px 20px; box-shadow: var(--shadow); }
+  .dq + .dq { margin-top: 22px; padding-top: 22px; border-top: 1px dashed var(--line); }
+  .dq-title { display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 900; color: var(--navy); margin-bottom: 12px; }
+  .dq-n { display: inline-grid; place-items: center; width: 36px; height: 28px; border-radius: 8px; background: var(--navy); color: #fff; font-size: 12px; font-weight: 800; letter-spacing: .05em; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    font-family: inherit; font-size: 14px; font-weight: 700; color: var(--navy);
+    background: #f6f8f9; border: 2px solid var(--line); border-radius: 999px; padding: 10px 18px; cursor: pointer;
+    transition: transform .2s var(--ease), background .2s, border-color .2s, color .2s, box-shadow .2s;
+  }
+  .chip:hover { transform: translateY(-2px); border-color: rgba(15,181,166,.5); }
+  .chip.on { background: linear-gradient(90deg, var(--teal), var(--green)); border-color: transparent; color: #fff; box-shadow: 0 8px 18px rgba(15,181,166,.35); }
+  .diag-result { margin-top: 24px; padding: 24px 20px; border-radius: 18px; text-align: center;
+    background: linear-gradient(135deg, #effaf8, #fff5f8); border: 1px solid rgba(15,181,166,.3);
+    animation: rise .6s var(--ease); }
+  .dr-head { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .dr-tag { font-size: 11px; font-weight: 800; letter-spacing: .2em; color: var(--pink); }
+  .dr-head h3 { font-size: clamp(18px, 4.4vw, 24px); font-weight: 900; color: var(--navy); line-height: 1.5; }
+  .diag-result p { font-size: 14px; color: var(--text); }
+  .dr-steps { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 14px 0 22px; }
+  .dr-steps span { font-size: 13px; font-weight: 700; color: var(--teal-ink); background: var(--white); border: 1px solid rgba(15,181,166,.35); border-radius: 999px; padding: 6px 14px; }
+  .dr-steps span::before { content: "STEP "; font-family: var(--font-en); font-size: 10px; letter-spacing: .1em; color: var(--muted); }
+
+  .anchor-row { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 22px; }
+  .an { background: #f6f8f9; border-radius: 14px; padding: 14px 12px; display: flex; flex-direction: column; gap: 2px; }
+  .an-lbl { font-size: 12px; font-weight: 700; color: var(--muted); }
+  .an-val { font-size: 18px; font-weight: 900; color: var(--navy); }
+  .an-val b { font-size: 1.7em; color: #e8365f; font-weight: 800; }
+  .an-sub { font-size: 11px; color: var(--muted); }
+
+  .fl.now { border-color: rgba(255,94,126,.5); box-shadow: 0 0 0 4px rgba(255,94,126,.12), var(--shadow-sm); }
+  .now-tag { position: absolute; right: 12px; top: 12px; font-size: 11px; font-weight: 800; color: #fff; background: linear-gradient(90deg, #ff5e7e, #ff8a3d); padding: 3px 10px; border-radius: 999px; animation: blink 1.6s ease-in-out infinite; }
+
+  .faq { display: grid; gap: 10px; }
+  .faq details { background: var(--white); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow-sm); overflow: hidden; }
+  .faq summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 12px; padding: 18px 18px; font-size: 15px; font-weight: 900; color: var(--navy); }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary .q { flex: 0 0 30px; width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center; background: linear-gradient(135deg, var(--teal), var(--green)); color: #fff; font-family: var(--font-en); font-weight: 800; font-size: 14px; }
+  .faq summary .pm { margin-left: auto; width: 22px; height: 22px; position: relative; flex: 0 0 22px; }
+  .faq summary .pm::before, .faq summary .pm::after { content: ""; position: absolute; left: 50%; top: 50%; background: var(--teal-deep); transform: translate(-50%,-50%); transition: transform .3s var(--ease); }
+  .faq summary .pm::before { width: 14px; height: 2px; }
+  .faq summary .pm::after { width: 2px; height: 14px; }
+  .faq details[open] summary .pm::after { transform: translate(-50%,-50%) rotate(90deg); }
+  .faq .a { padding: 0 18px 18px 60px; font-size: 14px; color: var(--text); }
+  .faq .a b { color: var(--teal-deep); }
+
+  .trust { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 0 auto 26px; max-width: 740px; }
+  .trust span { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: var(--navy); background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; box-shadow: var(--shadow-sm); }
+  .trust span::before { content: ""; flex: 0 0 18px; width: 18px; height: 18px; border-radius: 50%; background: linear-gradient(135deg, var(--teal), var(--green)); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='12' fill='%23000'/%3E%3Cpath d='M7 12.5l3 3 7-7' stroke='%23fff' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='12' fill='%23000'/%3E%3Cpath d='M7 12.5l3 3 7-7' stroke='%23fff' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat; }
+  .form-steps { display: flex; justify-content: center; align-items: center; gap: 10px; margin-bottom: 18px; font-size: 12px; font-weight: 700; color: var(--muted); }
+  .form-steps span { display: inline-flex; align-items: center; gap: 6px; }
+  .form-steps i { width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; font-style: normal; font-family: var(--font-en); font-size: 11px; background: #e5e9ec; color: var(--muted); }
+  .form-steps span.on { color: var(--navy); }
+  .form-steps span.on i { background: linear-gradient(135deg, #ff5e7e, #ff8a3d); color: #fff; }
+  .form-steps .sep { width: 24px; height: 1px; background: var(--line); }
+  .last-push { margin: 0 auto 22px; max-width: 740px; text-align: center; font-size: clamp(16px, 3.8vw, 20px); font-weight: 900; color: var(--navy); line-height: 1.6; }
+  .last-push .t { color: var(--teal-deep); }
+
+  /* ================= results ================= */
+  .uni-marquee {
+    position: relative; overflow: hidden; margin: -10px 0 36px; padding: 10px 0;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  }
+  .uni-track { display: flex; width: max-content; gap: 12px; animation: marquee 48s linear infinite; }
+  .uni-track span {
+    display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;
+    font-weight: 900; font-size: 15px; color: var(--navy);
+    background: var(--white); border: 1px solid var(--line); border-radius: 999px; padding: 8px 18px;
+    box-shadow: var(--shadow-sm);
+  }
+  .uni-track span::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: linear-gradient(135deg, var(--teal), var(--green)); }
+  .results { display: grid; grid-template-columns: 1fr; gap: 10px; }
+  .rs {
+    position: relative; overflow: hidden;
+    display: grid; grid-template-columns: 1fr; gap: 6px; align-items: center;
+    background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 16px 18px;
+    box-shadow: var(--shadow-sm); transition: transform .35s var(--ease), box-shadow .35s, border-color .35s;
+  }
+  .rs:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: rgba(15,181,166,.4); }
+  .rs.pick { background: linear-gradient(135deg, #ffffff, #effaf8); border-color: rgba(15,181,166,.35); }
+  .rs .pick-tag {
+    position: absolute; right: 0; top: 0; font-family: var(--font-en); font-size: 10px; font-weight: 800; letter-spacing: .12em;
+    color: #fff; background: linear-gradient(90deg, var(--pink), var(--pink-2)); padding: 4px 12px 4px 14px; border-radius: 0 0 0 12px;
+  }
+  .rs .from { font-size: 13px; font-weight: 700; color: var(--muted); }
+  .rs .arw { display: flex; align-items: center; height: 14px; }
+  .rs .arw i {
+    position: relative; display: block; width: 34px; height: 2px; border-radius: 2px;
+    background: linear-gradient(90deg, var(--teal), var(--green)); transform-origin: left; transform: scaleX(0);
+    transition: transform .7s var(--ease) .25s;
+  }
+  .rs .arw i::after {
+    content: ""; position: absolute; right: -1px; top: -4px; width: 8px; height: 8px;
+    border-top: 2px solid var(--green); border-right: 2px solid var(--green); transform: rotate(45deg);
+  }
+  .in .rs .arw i, .rs.in .arw i { transform: scaleX(1); }
+  .rs .to { font-size: 15px; font-weight: 900; color: var(--navy); line-height: 1.55; }
+  .rs .to b { display: inline-block; margin: 0 6px; font-family: var(--font-en); font-weight: 700; color: var(--teal-deep); font-size: .85em; }
+  .rs .to small { font-size: .8em; font-weight: 700; color: var(--pink); margin-left: 4px; }
+  .results-note { margin-top: 22px; text-align: center; font-size: 12px; color: var(--muted); }
+
+  /* ================= testimonials (marquee) ================= */
+  .tm-wrap { position: relative; overflow: hidden; margin: 0 -20px; padding: 10px 0 20px; }
+  .tm-wrap::before, .tm-wrap::after {
+    content: ""; position: absolute; top: 0; bottom: 0; width: 60px; z-index: 2; pointer-events: none;
+  }
+  .tm-wrap::before { left: 0; background: linear-gradient(90deg, var(--bg), transparent); }
+  .tm-wrap::after { right: 0; background: linear-gradient(-90deg, var(--bg-2), transparent); }
+  .tm-track { display: flex; gap: 16px; width: max-content; animation: marquee 46s linear infinite; padding: 0 8px; }
+  .tm-wrap:hover .tm-track { animation-play-state: paused; }
+  .tm {
+    position: relative; width: 320px; flex: 0 0 320px;
+    background: var(--white); border-radius: var(--radius); padding: 24px 22px;
+    box-shadow: var(--shadow-sm); border: 1px solid var(--line);
+    transition: transform .35s var(--ease), box-shadow .35s;
+  }
+  .tm:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+  .tm .q { position: absolute; right: 18px; top: 10px; font-family: var(--font-en); font-size: 64px; line-height: 1; color: rgba(15,181,166,.14); font-weight: 900; }
+  .tm-head { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .tm-avatar {
+    font-family: var(--font-en); width: 48px; height: 48px; border-radius: 50%; flex: 0 0 48px;
+    display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 14px;
+    background: linear-gradient(135deg, var(--teal), var(--green));
+  }
+  .tm-avatar.p { background: linear-gradient(135deg, #ec407a, #f48fb1); }
+  .tm-avatar.b { background: linear-gradient(135deg, #3b82f6, #60a5fa); }
+  .tm-avatar.o { background: linear-gradient(135deg, #f59e0b, #fbbf24); }
+  .tm-head .lbl { font-size: 12px; color: var(--muted); font-weight: 700; }
+  .tm-head h4 { font-size: 16px; font-weight: 900; color: var(--navy); line-height: 1.4; }
+  .tm p { font-size: 14px; color: var(--text); }
+  .tm p mark { background: linear-gradient(transparent 55%, #fff1a8 55%); color: inherit; font-weight: 700; }
+  .tm-hint { text-align: center; font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+  /* ================= cta band ================= */
+  .cta-band {
+    text-align: center; overflow: hidden; color: #fff;
+    background: linear-gradient(120deg, var(--teal) 0%, #14a08f 50%, var(--green) 100%);
+    background-size: 200% 200%; animation: gradient-bg 10s ease infinite;
+  }
+  @keyframes gradient-bg { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+  .cta-band .grid-bg { background-image: radial-gradient(rgba(255,255,255,0.25) 1px, transparent 1px); mask-image: none; -webkit-mask-image: none; opacity: .5; }
+  .cta-band .container { position: relative; }
+  .cta-band .kicker { font-size: clamp(16px, 4vw, 22px); font-weight: 700; opacity: 0.95; }
+  .cta-band .big { margin-top: 8px; font-size: clamp(24px, 6vw, 44px); font-weight: 900; line-height: 1.4; }
+  .cta-band .big span { display: inline-block; background: #fff; color: var(--teal-deep); padding: 2px 16px; border-radius: 12px; transform: rotate(-1.5deg); }
+  .cta-band .btn { margin-top: 28px; }
+  .cta-band .btn-note { color: rgba(255,255,255,0.9); }
+
+  /* ================= comparison / price ================= */
+  .cmp { background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--line); }
+  .cmp-row { display: grid; grid-template-columns: 82px 1fr 1.25fr; }
+  .cmp-row > div { padding: 14px 10px; font-size: 13px; line-height: 1.6; border-bottom: 1px solid var(--line); }
+  .cmp-row:last-child > div { border-bottom: 0; }
+  .cmp-head > div { font-weight: 900; text-align: center; font-size: 13px; background: #f6f8f9; color: var(--navy); }
+  .cmp-head .esma { background: linear-gradient(135deg, var(--teal), var(--green)); color: #fff; }
+  .cmp-head .esma b { font-family: var(--font-en); font-size: 1.3em; letter-spacing: .04em; }
+  .cmp-head .esma small { display: block; font-size: 11px; font-weight: 500; opacity: 0.9; }
+  .cmp-row .lbl { font-weight: 700; color: var(--navy); background: #f6f8f9; display: flex; align-items: center; justify-content: center; text-align: center; }
+  .cmp-row .other { color: var(--muted); }
+  .cmp-row .esma { background: #effaf8; color: var(--navy); font-weight: 700; position: relative; }
+  .cmp-row .esma b { color: var(--teal-deep); }
+  .price-box {
+    margin-top: 30px; background: var(--white); border-radius: var(--radius); padding: 32px 20px;
+    text-align: center; box-shadow: var(--shadow); border: 2px solid var(--pink-soft); position: relative; overflow: hidden;
+  }
+  .price-box .kicker { font-size: 17px; font-weight: 700; color: var(--navy); }
+  .price-box .headline { margin-top: 8px; font-size: clamp(20px, 5vw, 32px); font-weight: 900; color: var(--navy); line-height: 1.5; }
+  .price-box .headline .r { font-family: var(--font-en); color: var(--red); font-size: 1.25em; }
+  .stamp {
+    display: inline-block; position: relative; color: var(--red); font-size: 1.55em; padding: 0 .12em;
+    opacity: 0; transform: scale(3) rotate(-14deg);
+  }
+  .stamp::before { content: ""; position: absolute; inset: -.05em -.02em; border: .09em solid var(--red); border-radius: .18em; transform: rotate(-4deg); }
+  .in .stamp { animation: stamp .55s cubic-bezier(.3,1.6,.5,1) .5s forwards; }
+  @keyframes stamp { 0% { opacity: 0; transform: scale(3) rotate(-14deg); } 60% { opacity: 1; transform: scale(.92) rotate(-6deg); } 100% { opacity: 1; transform: scale(1) rotate(-6deg); } }
+  .price-line { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 6px; margin: 22px 0; }
+  .price-line .old { position: relative; font-size: 14px; color: var(--muted); }
+  .price-line .old::after { content: ""; position: absolute; left: 0; top: 50%; height: 2px; width: 100%; background: var(--red); transform: scaleX(0); transform-origin: left; transition: transform .6s var(--ease) 1s; }
+  .in .price-line .old::after { transform: scaleX(1); }
+  .price-line .plus { font-size: 24px; color: var(--muted); }
+  .price-line .main { font-size: 17px; font-weight: 700; color: var(--navy); }
+  .price-line .main .r { font-family: var(--font-en); color: var(--red); font-size: 1.6em; font-weight: 800; }
+  .price-line .main small { display: block; font-size: 12px; color: var(--muted); font-weight: 500; }
+  .price-final {
+    position: relative; overflow: hidden;
+    background: linear-gradient(135deg, #e0334a, #c62839); color: #fff; border-radius: 16px; padding: 20px 16px;
+    box-shadow: 0 14px 30px rgba(224,51,74,.3);
+  }
+  .price-final::before { content: ""; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 40%, rgba(255,255,255,.25) 50%, transparent 60%); transform: translateX(-120%); animation: shimmer 3.5s ease-in-out infinite; }
+  .price-final .lbl { font-size: 13px; opacity: 0.9; }
+  .price-final .val { font-size: clamp(17px, 4.2vw, 23px); font-weight: 700; line-height: 1.6; }
+  .price-final .val b { font-family: var(--font-en); font-size: 1.5em; font-weight: 800; }
+  .price-note { margin-top: 14px; font-size: 12px; color: var(--muted); }
+
+  /* ================= flow ================= */
+  .flow { display: grid; grid-template-columns: 1fr; gap: 12px; position: relative; }
+  .fl {
+    position: relative; background: var(--white); border-radius: 18px; padding: 20px 18px 20px 72px;
+    box-shadow: var(--shadow-sm); border: 1px solid var(--line); transition: transform .35s var(--ease), box-shadow .35s;
+  }
+  .fl:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+  .fl .n {
+    font-family: var(--font-en); position: absolute; left: 18px; top: 18px; width: 40px; height: 40px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--teal), var(--green)); color: #fff; font-weight: 800; display: grid; place-items: center;
+    box-shadow: 0 0 0 6px rgba(15,181,166,.15);
+  }
+  .fl h3 { font-size: 16px; font-weight: 900; color: var(--navy); }
+  .fl p { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .flow-line { display: none; }
+
+  /* ================= form ================= */
+  .form-intro { text-align: center; font-size: 15px; color: var(--text); }
+  .form-note {
+    margin: 20px auto 0; max-width: 740px;
+    background: #fff8e1; border-left: 4px solid var(--gold); border-radius: 12px;
+    padding: 14px 16px; font-size: 13px; color: #5b4b12; line-height: 1.7;
+  }
+  .form-note b { color: #8a5a00; }
+  .form-wrap {
+    margin: 28px auto 0; max-width: 740px; background: var(--white); position: relative;
+    border-radius: var(--radius); padding: 10px; box-shadow: var(--shadow);
+  }
+  .form-wrap::before {
+    content: ""; position: absolute; inset: -2px; border-radius: inherit; z-index: -1;
+    background: linear-gradient(120deg, var(--teal), var(--green), var(--pink), var(--teal));
+    background-size: 300% 300%; animation: gradient-bg 8s ease infinite;
+  }
+  .form-wrap iframe { width: 100%; height: 900px; border: 0; border-radius: 14px; background: #fff; }
+  .form-fallback { text-align: center; margin-top: 14px; font-size: 13px; color: var(--muted); }
+  .form-fallback a { color: var(--teal-deep); font-weight: 700; text-decoration: underline; }
+  .form-footer { margin-top: 16px; text-align: center; font-size: 13px; color: var(--muted); }
+
+  /* ================= footer ================= */
+  .footer { position: relative; background: var(--navy); color: #cbd5e1; padding: 48px 0 110px; text-align: center; overflow: hidden; }
+  .footer::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: linear-gradient(90deg, var(--teal), var(--green), var(--pink)); }
+  .footer .logo-text { color: #fff; }
+  .footer-links { margin-top: 16px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 24px; font-size: 13px; }
+  .footer-links a { transition: color .2s; }
+  .footer-links a:hover { color: #fff; }
+  .footer .copy { margin-top: 20px; font-size: 12px; color: #94a3b8; }
+  .footer .orb { opacity: .25; }
+
+  /* ================= sticky cta ================= */
+  .sticky-cta {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+    padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid var(--line);
+    transform: translateY(110%); transition: transform .4s var(--ease);
+  }
+  .sticky-cta.show { transform: translateY(0); }
+  .sticky-cta .btn { width: 100%; font-size: 16px; padding: 15px 20px; }
+
+  /* ================= tilt ================= */
+  .tilt { transform-style: preserve-3d; will-change: transform; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .reveal, [data-stagger] > *, .hero-anim, .hero-sub, .stamp, .hero-pyra .tier { opacity: 1 !important; transform: none !important; }
+    .hero-sub svg path { stroke-dashoffset: 0; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* ================= responsive ================= */
+  @media (min-width: 768px) {
+    .sp { display: none; }
+    .nav { display: flex; }
+    .header-cta { display: inline-block; }
+    .hero { padding: 130px 0 120px; min-height: 100svh; }
+    .hero-card { padding: 32px 36px; }
+    .scroll-cue { display: flex; }
+    .problems { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .pb-card { flex-direction: column; text-align: center; padding: 28px 18px; gap: 14px; }
+    .pb-icon { width: 58px; height: 58px; flex-basis: auto; }
+    .pb-icon svg { width: 28px; height: 28px; }
+    .pb-card p { font-size: 15px; }
+    .pb-card p br { display: inline; }
+    .program { grid-template-columns: repeat(4, 1fr); }
+    .pg { flex-direction: column; align-items: flex-start; padding: 20px 16px; }
+    .pg::before { left: 0; right: 0; bottom: auto; height: 5px; width: auto; background: linear-gradient(90deg, var(--teal), var(--green)); }
+    .flow { grid-template-columns: repeat(4, 1fr); }
+    .fl { padding: 64px 18px 24px; }
+    .flow-line { display: block; position: absolute; left: 12%; right: 12%; top: 38px; height: 3px; background: rgba(15,110,102,.12); border-radius: 999px; overflow: hidden; z-index: 0; }
+    .flow-line span { display: block; height: 100%; width: 100%; background: linear-gradient(90deg, var(--teal), var(--green)); transform: scaleX(0); transform-origin: left; transition: transform 1.6s var(--ease) .3s; }
+    .in .flow-line span { transform: scaleX(1); }
+    .fl { z-index: 1; }
+    .price-line { flex-direction: row; flex-wrap: wrap; gap: 12px 22px; }
+    .cmp-row { grid-template-columns: 140px 1fr 1.3fr; }
+    .cmp-row > div { padding: 18px 18px; font-size: 15px; }
+    .cmp-head > div { font-size: 15px; }
+    .cmp-head .esma small { font-size: 12px; }
+    .g-card { padding: 34px 18px 30px; }
+    .g-card .sub { font-size: 13px; }
+    .ft { padding: 30px 30px; grid-template-columns: 72px 1fr; gap: 22px; }
+    .ft .n { width: 72px; height: 72px; font-size: 34px; }
+    .ft p { font-size: 15px; }
+    .vl p { font-size: 15px; }
+    .deadline { padding: 14px 26px; font-size: 14px; }
+    .deadline .dl-msg { width: auto; }
+    .diag { padding: 32px 34px; }
+    .anchor-row { grid-template-columns: repeat(3, 1fr); }
+    .an { padding: 16px 14px; }
+    .trust { grid-template-columns: repeat(4, 1fr); }
+    .results { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .rs { grid-template-columns: 1fr auto 1.3fr; gap: 14px; padding: 20px 22px; }
+    .rs .from { font-size: 14px; text-align: right; }
+    .rs .arw i { width: 40px; }
+    .rs .to { font-size: 15px; }
+    .rs.pick .to { font-size: 16px; }
+    .tm { width: 360px; flex-basis: 360px; }
+    .tm p { font-size: 15px; }
+    .tm-wrap { margin: 0; }
+    section { padding: 104px 0; }
+    .footer { padding-bottom: 56px; }
+    .sticky-cta { display: none; }
+  }
+  @media (min-width: 1024px) {
+    .values { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
+    .vl-arrow { display: none; }
+    .features { grid-template-columns: repeat(3, 1fr); }
+    .ft { grid-template-columns: 1fr; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+<!-- ===== Header ===== -->
+<header class="header" id="header">
+  <div class="container header-inner">
+    <a href="#top" class="logo" aria-label="ESMA トップへ">
+      <svg viewBox="0 0 100 92" aria-hidden="true" class="pyra">
+        <polygon class="tier top" points="50,4 61.4,24 38.6,24"/>
+        <polygon class="tier" points="36.9,27 63.1,27 74,46 26,46"/>
+        <polygon class="tier" points="24.3,49 75.7,49 86.6,68 13.4,68"/>
+        <polygon class="tier" points="11.7,71 88.3,71 98,88 2,88"/>
+      </svg>
+      <span class="logo-text">ESMA</span>
+      <span class="logo-sub">オンライン院試塾</span>
+    </a>
+    <nav class="nav" aria-label="ページ内リンク">
+      <a href="#problems">お悩み</a>
+      <a href="#features">特徴</a>
+      <a href="#program">プログラム</a>
+      <a href="#results">合格実績</a>
+      <a href="#voice">体験談</a>
+      <a href="#price">料金</a>
+    </nav>
+    <a href="#form" class="header-cta">無料説明会に申し込む</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="hero">
+  <div class="aurora" aria-hidden="true">
+    <span class="a1" data-depth="0.04"></span>
+    <span class="a2" data-depth="-0.05"></span>
+    <span class="a3" data-depth="0.03"></span>
+    <span class="a4" data-depth="-0.02"></span>
+  </div>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="ring r1" aria-hidden="true"></div>
+  <div class="ring r2" aria-hidden="true"></div>
+  <svg class="hero-pyra" viewBox="0 0 100 92" aria-hidden="true">
+    <polygon class="tier top" points="50,4 61.4,24 38.6,24"/>
+    <polygon class="tier" points="36.9,27 63.1,27 74,46 26,46"/>
+    <polygon class="tier" points="24.3,49 75.7,49 86.6,68 13.4,68"/>
+    <polygon class="tier" points="11.7,71 88.3,71 98,88 2,88"/>
+  </svg>
+
+  <div class="container">
+    <div class="badge-hot hero-anim d1"><span class="dot"></span>話題沸騰中!</div>
+    <h1 class="hero-title">
+      <span class="hero-anim d2" style="display:block">"<span class="t en">ESMA</span>なら"今からでも、</span>
+      <span class="hero-anim d3" style="display:block"><span class="p">憧れの大学院</span>に間に合います!</span>
+    </h1>
+    <p class="hero-sub">最短距離で院試を突破。
+      <svg viewBox="0 0 400 18" preserveAspectRatio="none" aria-hidden="true"><path d="M4 12 C 80 2, 160 16, 240 8 S 360 4, 396 10"/></svg>
+    </p>
+
+    <div class="hero-card hero-anim d4 tilt" data-tilt="6">
+      <p class="lead">講師は全員<span class="t">東大</span>などの<br class="sp"><span class="p">難関大院試経験者</span>のみ！</p>
+      <p class="brand">「大学院受験なら<span class="esma">esma</span>」</p>
+    </div>
+
+    <div class="hero-cta hero-anim d5">
+      <a href="#form" class="btn btn-lg pulse">
+        今すぐ無料説明会に申し込む
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </a>
+      <span class="btn-note">オンライン(Zoom)・自宅から参加OK・参加無料・説明会だけの参加もOK</span>
+    </div>
+
+    <div class="deadline hero-anim d6" id="deadline">
+      <span class="dl-lbl"><span id="dlSeason">次の院試シーズン</span>まで</span>
+      <span class="dl-num en">あと <b id="dlDays">--</b> 日</span>
+      <span class="dl-msg">今から始めれば、まだ間に合います。</span>
+    </div>
+
+    <div class="hero-stats hero-anim d6">
+      <div class="stat"><div class="num"><span data-count="96">0</span><small>%</small></div><div class="lbl">受講生満足度</div></div>
+      <div class="stat"><div class="num"><span data-count="1000">0</span><small>人+</small></div><div class="lbl">院試相談実績</div></div>
+      <div class="stat"><div class="num">1<small>対</small>1</div><div class="lbl">完全個別指導</div></div>
+    </div>
+  </div>
+  <div class="scroll-cue hero-anim d7" aria-hidden="true">SCROLL<i></i></div>
+</section>
+
+<!-- ===== Ticker ===== -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>ONLINE 1 on 1</span><span>全8回 オーダーメイド</span><span>満足度 96%</span><span>相談実績 1,000+</span><span>3大保証</span><span>難関大院試経験者が指導</span><span>研究計画書・面接対策</span><span>TOEIC / TOEFL</span>
+    <span>ONLINE 1 on 1</span><span>全8回 オーダーメイド</span><span>満足度 96%</span><span>相談実績 1,000+</span><span>3大保証</span><span>難関大院試経験者が指導</span><span>研究計画書・面接対策</span><span>TOEIC / TOEFL</span>
+  </div>
+</div>
+
+<!-- ===== Guarantees ===== -->
+<section class="sec-white" id="guarantee">
+  <div class="watermark" aria-hidden="true">GUARANTEE</div>
+  <div class="container narrow">
+    <div class="sec-head reveal">
+      <div class="satisfaction">
+        <svg viewBox="0 0 152 152" aria-hidden="true"><circle class="track" cx="76" cy="76" r="70"/><circle class="bar" cx="76" cy="76" r="70"/></svg>
+        <div class="num"><span data-count="96">0</span><small>%</small></div>
+        <div class="lbl">受講生満足度</div>
+      </div>
+      <h2 class="sec-title">結果に自信があるからできる!<br>本気の人のための<span class="num">3</span>大保証</h2>
+    </div>
+    <div class="guarantees" data-stagger>
+      <div class="g-card tilt" data-tilt="8">
+        <span class="tag">保証 01</span>
+        <div class="title"><span class="t">全額返金</span><br>保証</div>
+        <p class="sub">ご満足いただけなければ</p>
+      </div>
+      <div class="g-card tilt" data-tilt="8">
+        <span class="tag">保証 02</span>
+        <div class="title"><span class="t">少数指導</span><br>保証</div>
+        <p class="sub">徹底&amp;包括的な指導を行うために</p>
+      </div>
+      <div class="g-card tilt" data-tilt="8">
+        <span class="tag">保証 03</span>
+        <div class="title"><span class="t">無料相談</span><br>保証</div>
+        <p class="sub">卒塾後も</p>
+      </div>
+    </div>
+    <div class="campaign reveal">
+      <p>＼ 今なら入会金<span class="price">30,000円</span>OFF! ／</p>
+      <p class="scarcity">1対1の少数指導のため、<b>毎月の受け入れ人数には限りがあります。</b></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Problems ===== -->
+<section class="sec-tint" id="problems">
+  <div class="watermark" aria-hidden="true">PROBLEMS</div>
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Problems</span>
+      <h2 class="sec-title">大学院入試でこんな<span class="p">お悩み</span>を<br>抱える人に、ぜひオススメです!</h2>
+    </div>
+    <div class="problems" data-stagger>
+      <div class="pb-card">
+        <div class="pb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+        <p>院試の情報が<br>なかなか手に入らない</p>
+      </div>
+      <div class="pb-card">
+        <div class="pb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></div>
+        <p>本当に今の勉強で<br>いいのかわからない</p>
+      </div>
+      <div class="pb-card">
+        <div class="pb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6"/><path d="M10 3v6.5L4.5 19a2 2 0 0 0 1.7 3h11.6a2 2 0 0 0 1.7-3L14 9.5V3"/><path d="M7 16h10"/></svg></div>
+        <p>研究室選びなど<br>幅広い指導を受けたい</p>
+      </div>
+      <div class="pb-card">
+        <div class="pb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/><path d="M22 10v6"/></svg></div>
+        <p>実際に合格した人から<br>指導を受けたい</p>
+      </div>
+      <div class="pb-card">
+        <div class="pb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <p>1人で勉強を続けていける<br>自信がない</p>
+      </div>
+      <div class="pb-card">
+        <div class="pb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+        <p>試験対策、<br>どうすればいい?</p>
+      </div>
+    </div>
+    <div class="problems-arrow reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16"/><path d="M5 13l7 7 7-7"/></svg>
+    </div>
+    <p class="problems-answer reveal">その悩み、<span class="t">esma</span>が一緒に解決します。</p>
+  </div>
+</section>
+
+<!-- ===== Self check ===== -->
+<section class="sec-white" id="check">
+  <div class="watermark" aria-hidden="true">CHECK</div>
+  <div class="container narrow">
+    <div class="sec-head reveal">
+      <span class="eyebrow">30sec Self Check</span>
+      <h2 class="sec-title">あなたに合う進め方を<br class="sp"><span class="t">30秒</span>で診断</h2>
+      <p class="sec-lead">2つ選ぶだけ。あなたの状況に合わせた「最初の一歩」をお伝えします。</p>
+    </div>
+    <div class="diag reveal" id="diag">
+      <div class="dq" data-q="goal">
+        <div class="dq-title"><span class="dq-n en">Q1</span>志望校は決まっていますか?</div>
+        <div class="chips">
+          <button type="button" class="chip" data-v="fixed">決まっている</button>
+          <button type="button" class="chip" data-v="some">候補が数校ある</button>
+          <button type="button" class="chip" data-v="none">まだ決まっていない</button>
+        </div>
+      </div>
+      <div class="dq" data-q="time">
+        <div class="dq-title"><span class="dq-n en">Q2</span>受験までの期間は?</div>
+        <div class="chips">
+          <button type="button" class="chip" data-v="short">3ヶ月以内</button>
+          <button type="button" class="chip" data-v="mid">半年くらい</button>
+          <button type="button" class="chip" data-v="long">1年以上ある</button>
+        </div>
+      </div>
+      <div class="diag-result" id="diagResult" hidden>
+        <div class="dr-head"><span class="dr-tag en">RESULT</span><h3 id="drTitle"></h3></div>
+        <p id="drBody"></p>
+        <div class="dr-steps" id="drSteps"></div>
+        <a href="#form" class="btn pulse">
+          この内容で無料説明会を申し込む
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <span class="btn-note">診断結果をもとに、説明会で具体的な進め方をお話しします</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Features ===== -->
+<section class="sec-navy" id="features">
+  <div class="orb o1" aria-hidden="true"></div>
+  <div class="orb o2" aria-hidden="true"></div>
+  <div class="watermark" aria-hidden="true">FEATURES</div>
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Features</span>
+      <h2 class="sec-title">短期間で圧倒的な学習サポートをして<br>あなたの<span class="g">大学院合格</span>に一緒に向き合います!</h2>
+    </div>
+    <div class="features" data-stagger>
+      <div class="ft tilt" data-tilt="5">
+        <div class="n">1</div>
+        <div>
+          <h3>優秀な講師陣</h3>
+          <p>講師は全員、東大などの難関大学院の院試を実際に突破した経験者のみ。オンラインの院試も経験しており、最新の情報をお届けします。</p>
+        </div>
+      </div>
+      <div class="ft tilt" data-tilt="5">
+        <div class="n">2</div>
+        <div>
+          <h3><span class="g">1,000人以上</span>の院試相談実績</h3>
+          <p>1,000人以上の院試相談にのってきた実績あり。文系・理系、内部進学・外部受験など、様々なケースに対応できます。</p>
+        </div>
+      </div>
+      <div class="ft tilt" data-tilt="5">
+        <div class="n">3</div>
+        <div>
+          <h3>個別で徹底的にサポート</h3>
+          <p>1対1の個別講義のため、疑問や質問もその場で徹底解決! あなたの志望校・現状に合わせて指導内容を組み立てます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Results ===== -->
+<section class="sec-white" id="results">
+  <div class="watermark" aria-hidden="true">RESULTS</div>
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Results</span>
+      <h2 class="sec-title">合格実績</h2>
+      <p class="sec-lead">出身大学から、<span class="t" style="font-weight:700">東大・東工大・阪大・東北大</span>をはじめとする難関大学院へ。<br class="sp">esma受講生の合格例の一部です。</p>
+    </div>
+  </div>
+
+  <div class="uni-marquee reveal" aria-hidden="true">
+    <div class="uni-track">
+      <span>東京大学</span><span>東京工業大学</span><span>大阪大学</span><span>東北大学</span><span>名古屋大学</span><span>九州大学</span><span>北海道大学</span><span>筑波大学</span><span>奈良先端科学技術大学院大学</span><span>横浜市立大学</span><span>東京都立大学</span><span>上智大学</span><span>青山学院大学</span><span>国際教養大学</span><span>滋賀大学</span><span>広島大学</span><span>東京理科大学</span>
+      <span>東京大学</span><span>東京工業大学</span><span>大阪大学</span><span>東北大学</span><span>名古屋大学</span><span>九州大学</span><span>北海道大学</span><span>筑波大学</span><span>奈良先端科学技術大学院大学</span><span>横浜市立大学</span><span>東京都立大学</span><span>上智大学</span><span>青山学院大学</span><span>国際教養大学</span><span>滋賀大学</span><span>広島大学</span><span>東京理科大学</span>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="results" data-stagger>
+      <div class="rs pick"><span class="pick-tag">PICK UP</span><div class="from">東京工業大学</div><div class="arw"><i></i></div><div class="to">東京大学大学院 システム創成</div></div>
+      <div class="rs pick"><span class="pick-tag">PICK UP</span><div class="from">豊橋技術科学大学</div><div class="arw"><i></i></div><div class="to">東京大学 工学系研究科 原子力国際専攻</div></div>
+      <div class="rs pick"><span class="pick-tag">PICK UP</span><div class="from">上智大学 理工学部</div><div class="arw"><i></i></div><div class="to">東京大学 工学系研究科 応用化学専攻<b>＆</b>東京工業大学 物質理工学院 材料系 材料コース</div></div>
+      <div class="rs pick"><span class="pick-tag">PICK UP</span><div class="from">名古屋大学 工学部</div><div class="arw"><i></i></div><div class="to">東京大学 工学系研究科 航空宇宙工学専攻</div></div>
+      <div class="rs pick"><span class="pick-tag">PICK UP</span><div class="from">東北大学 理学部</div><div class="arw"><i></i></div><div class="to">大阪大学 理学研究科 物理学専攻<b>＆</b>東京大学 理学研究科 物理学専攻</div></div>
+      <div class="rs pick"><span class="pick-tag">PICK UP</span><div class="from">工学院大学</div><div class="arw"><i></i></div><div class="to">東京工業大学 環境・社会理工学院 融合理工学系</div></div>
+      <div class="rs pick"><span class="pick-tag">PICK UP</span><div class="from">立教大学 理学部</div><div class="arw"><i></i></div><div class="to">東京工業大学 物質理工学院 材料系</div></div>
+      <div class="rs pick"><span class="pick-tag">PICK UP</span><div class="from">神戸大学 海洋政策科学部</div><div class="arw"><i></i></div><div class="to">東京工業大学 環境・社会理工学院</div></div>
+      <div class="rs pick"><span class="pick-tag">PICK UP</span><div class="from">明治大学 総合数理学部</div><div class="arw"><i></i></div><div class="to">東京工業大学</div></div>
+      <div class="rs"><div class="from">立命館大学 生命科学部</div><div class="arw"><i></i></div><div class="to">大阪大学 理学部<small>(推薦合格)</small></div></div>
+      <div class="rs"><div class="from">公立諏訪東京理科大学</div><div class="arw"><i></i></div><div class="to">東北大学 工学研究科<small>(推薦合格)</small><b>＆</b>九州大学</div></div>
+      <div class="rs"><div class="from">明治大学</div><div class="arw"><i></i></div><div class="to">筑波大学 知能機能システム学位プログラム<small>(冬日程)</small></div></div>
+      <div class="rs"><div class="from">青山学院大学 文学部</div><div class="arw"><i></i></div><div class="to">国際教養大学 グローバルコミュニケーション実践研究科<b>＆</b>筑波大学 人間総合科学学術院</div></div>
+      <div class="rs"><div class="from">早稲田大学</div><div class="arw"><i></i></div><div class="to">上智大学大学院 応用データサイエンス学位プログラム<b>＆</b>横浜市立大学 データサイエンス研究科 データサイエンス専攻</div></div>
+      <div class="rs"><div class="from">東京理科大学</div><div class="arw"><i></i></div><div class="to">名古屋大学 航空宇宙工学専攻<b>＆</b>東京都立大学 航空宇宙システム工学科</div></div>
+      <div class="rs"><div class="from">南山大学 理工学部</div><div class="arw"><i></i></div><div class="to">滋賀大学 データサイエンス研究科 データサイエンス専攻</div></div>
+      <div class="rs"><div class="from">和歌山大学 システム工学部</div><div class="arw"><i></i></div><div class="to">奈良先端科学技術大学院大学</div></div>
+      <div class="rs"><div class="from">東京海洋大学 海洋工学部</div><div class="arw"><i></i></div><div class="to">奈良先端科学技術大学院大学</div></div>
+      <div class="rs"><div class="from">愛知工業大学</div><div class="arw"><i></i></div><div class="to">青山学院大学 理工学研究科</div></div>
+      <div class="rs"><div class="from">北海道大学 理学部</div><div class="arw"><i></i></div><div class="to">北海道大学 理学研究科</div></div>
+      <div class="rs"><div class="from">広島大学 工学部</div><div class="arw"><i></i></div><div class="to">広島大学 工学研究科</div></div>
+      <div class="rs"><div class="from">東京理科大学</div><div class="arw"><i></i></div><div class="to">東京理科大学大学院</div></div>
+    </div>
+    <p class="results-note reveal">※ 合格実績の一部を掲載しています。外部受験・内部進学、理系・文系を問わずサポートしています。</p>
+  </div>
+</section>
+
+<!-- ===== Program ===== -->
+<section class="sec-tint" id="program">
+  <div class="watermark" aria-hidden="true">PROGRAM</div>
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Program</span>
+      <h2 class="sec-title">受講者の<span class="p en">96%</span>が効果を実感した<br><span class="t">全8回の学習プログラム</span></h2>
+      <p class="sec-lead">志望校・時期に合わせて、順番や内容を臨機応変に組み替えられる完全オーダーメイド型です。</p>
+    </div>
+    <div class="program-bar reveal" aria-hidden="true"><span></span></div>
+    <div class="program" data-stagger>
+      <div class="pg tilt" data-tilt="6"><div class="n">1</div><p>勉強スケジュールの作成</p><span class="bg-n">01</span></div>
+      <div class="pg tilt" data-tilt="6"><div class="n">2</div><p>志望校選び</p><span class="bg-n">02</span></div>
+      <div class="pg tilt" data-tilt="6"><div class="n">3</div><p>研究室訪問</p><span class="bg-n">03</span></div>
+      <div class="pg tilt" data-tilt="6"><div class="n">4</div><p>院試の全体的な勉強法</p><span class="bg-n">04</span></div>
+      <div class="pg tilt" data-tilt="6"><div class="n">5</div><p>院試の各教科の勉強法</p><span class="bg-n">05</span></div>
+      <div class="pg tilt" data-tilt="6"><div class="n">6</div><p>TOEIC・TOEFL<br>英語試験対策</p><span class="bg-n">06</span></div>
+      <div class="pg tilt" data-tilt="6"><div class="n">7</div><p>研究計画書・<br>志望理由書の作成</p><span class="bg-n">07</span></div>
+      <div class="pg tilt" data-tilt="6"><div class="n">8</div><p>面接試験・<br>口頭試問対策</p><span class="bg-n">08</span></div>
+    </div>
+    <p class="program-note reveal">全8回・<b>1対1のオンライン個別指導</b>。すべての回で講師に直接質問できます。</p>
+  </div>
+</section>
+
+<!-- ===== Value ===== -->
+<section class="sec-white" id="value">
+  <div class="watermark" aria-hidden="true">VALUE</div>
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Value</span>
+      <h2 class="sec-title">他塾とはここが<span class="p">違う!</span><br>カリキュラムの圧倒的な提供価値</h2>
+    </div>
+    <div class="values" data-stagger>
+      <div class="vl">
+        <span class="big" aria-hidden="true">01</span>
+        <div class="vl-head"><div class="n">1</div><h3>効率的な情報収集</h3></div>
+        <p>大学院受験は、大学受験と違い情報があまり出回っていません。ネット上で正しい情報を得ようとすると膨大な時間がかかる割に、間違った情報を入手する危険性もあります。esmaでは、院試を経験した講師が持つ生の情報を直接お伝えします。</p>
+      </div>
+      <div class="vl-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16"/><path d="M5 13l7 7 7-7"/></svg></div>
+      <div class="vl">
+        <span class="big" aria-hidden="true">02</span>
+        <div class="vl-head"><div class="n">2</div><h3>勉強時間の向上</h3></div>
+        <p>勉強スケジュールの作成や、日常生活の無駄な時間の見直しを行い、合格するためにストイックに勉強時間を確保します。一人で対策するよりも、圧倒的に勉強時間を増やすことができます。</p>
+      </div>
+      <div class="vl-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16"/><path d="M5 13l7 7 7-7"/></svg></div>
+      <div class="vl">
+        <span class="big" aria-hidden="true">03</span>
+        <div class="vl-head"><div class="n">3</div><h3>勉強の質の向上</h3></div>
+        <p>効率的な全体の勉強法や、院試対策の方法がわかります。難関大学院の院試を突破した講師が実際に使用し、おすすめする方法を紹介します。</p>
+      </div>
+    </div>
+    <div class="value-result reveal">
+      <p>限られた時間で<br><span class="r">第一志望に合格</span>できる</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Testimonials ===== -->
+<section class="sec-tint" id="voice">
+  <div class="watermark" aria-hidden="true">VOICE</div>
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Voice</span>
+      <h2 class="sec-title">大学院に行って、<span class="t">良かった</span>。<br>そう感じる学生は全国に多数います</h2>
+    </div>
+  </div>
+  <div class="container">
+    <div class="tm-wrap reveal">
+      <div class="tm-track" id="tmTrack">
+        <div class="tm">
+          <span class="q" aria-hidden="true">"</span>
+          <div class="tm-head"><div class="tm-avatar">01</div><div><div class="lbl">実体験 1</div><h4>交流の幅や刺激が広がった</h4></div></div>
+          <p>大学から大学院を変えると、新しい人脈やレベルの高い教授などとの交流が増えるようになりました! レベルの高い大学院になるほど、講師の先生が各界の著名人であることもあり、<mark>刺激的で有意義な時間</mark>を過ごすことができました!</p>
+        </div>
+        <div class="tm">
+          <span class="q" aria-hidden="true">"</span>
+          <div class="tm-head"><div class="tm-avatar p">02</div><div><div class="lbl">実体験 2</div><h4>大きく成長できる</h4></div></div>
+          <p>周りの人々が優秀であるがゆえに、自分も同じくらい優秀にならなければいけないと思い、より努力するようになりました。また難関大学院は予算が多く投入されていることもあり、<mark>綺麗な建物も多く、勉強する環境が整っています。</mark></p>
+        </div>
+        <div class="tm">
+          <span class="q" aria-hidden="true">"</span>
+          <div class="tm-head"><div class="tm-avatar b">03</div><div><div class="lbl">実体験 3</div><h4>研究能力・専門性が上がった</h4></div></div>
+          <p>大学院では、学部時代よりもさらに深い専門知識を身につけることができました。科研費が多く割り当てられている大学では研究に使える予算が多く、<mark>満足のいく実験器具や設備を使用してレベルの高い研究</mark>を行うことができました!</p>
+        </div>
+        <div class="tm">
+          <span class="q" aria-hidden="true">"</span>
+          <div class="tm-head"><div class="tm-avatar o">04</div><div><div class="lbl">実体験 4</div><h4>超大手の内定をもらえた</h4></div></div>
+          <p>レベルの高い大学院に進学して、学部時代では考えられないような<mark>超大手の内定をもらえました!</mark> 大学から大学院へ進学する際の努力も認めてもらうことができました!</p>
+        </div>
+      </div>
+    </div>
+    <p class="tm-hint">カードにカーソルを合わせると止まります</p>
+  </div>
+</section>
+
+<!-- ===== CTA band ===== -->
+<section class="cta-band">
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="container reveal">
+    <p class="kicker">＼ 無料キャンペーン開催中 ／</p>
+    <p class="big">大学院合格を本気で目指す<br><span>無料体験講座</span></p>
+    <a href="#form" class="btn btn-lg btn-white">
+      今すぐ無料説明会に申し込む
+      <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    </a>
+    <span class="btn-note">所要時間は30分程度。無理な勧誘は一切ありません。</span>
+  </div>
+</section>
+
+<!-- ===== Price ===== -->
+<section class="sec-white" id="price">
+  <div class="watermark" aria-hidden="true">PRICE</div>
+  <div class="container narrow">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Price</span>
+      <h2 class="sec-title"><span class="t en">esma</span>が結果を出せるのは、<br>他の塾と大きく違うからです</h2>
+    </div>
+    <div class="cmp reveal">
+      <div class="cmp-row cmp-head">
+        <div class="lbl"></div>
+        <div>一般的な院試塾</div>
+        <div class="esma"><b>esma</b><small>オンライン院試塾</small></div>
+      </div>
+      <div class="cmp-row">
+        <div class="lbl">カリキュラム</div>
+        <div class="other">決まったカリキュラムを20〜40回受講</div>
+        <div class="esma"><b>全8回</b>のカリキュラムを、臨機応変に組み替えられる<b>完全オーダーメイド型</b></div>
+      </div>
+      <div class="cmp-row">
+        <div class="lbl">情報収集</div>
+        <div class="other">大学院入試の情報がほぼ更新されない</div>
+        <div class="esma">入試難易度や研究室情報など、院試を経験した講師だからこそ持つ<b>生の情報</b>を提供</div>
+      </div>
+      <div class="cmp-row">
+        <div class="lbl">費用</div>
+        <div class="other">入会金だけで6万円〜<br>受講費を合わせると1年間で40万円</div>
+        <div class="esma">全8回で<b>99,800円</b><br>入会金は30,000円<br><b>入会金が無料になることも!</b></div>
+      </div>
+    </div>
+
+    <div class="price-box reveal">
+      <p class="kicker">＼ なんとお得に ／</p>
+      <p class="headline">今だけ入会金<span class="r">30,000円</span>が<br class="sp"><span class="stamp">無料</span>に!</p>
+      <div class="price-line">
+        <div class="old">入会金: 30,000円(税込)</div>
+        <div class="plus">+</div>
+        <div class="main">受講料: <span class="r">99,800円</span>(税込)<small>(月額 49,400円(税込)×2回の分割も可)</small></div>
+      </div>
+      <div class="price-final">
+        <div class="lbl">今だけ</div>
+        <div class="val">入会金: <b>無料!</b><br class="sp"> ＋ 受講料: <b>99,800円</b>(税込)</div>
+      </div>
+      <div class="anchor-row">
+        <div class="an"><span class="an-lbl">一般的な院試塾との差額</span><span class="an-val en">約<b>30</b>万円</span><span class="an-sub">1年間 約40万円 → 全8回 99,800円</span></div>
+        <div class="an"><span class="an-lbl">1回あたりの受講料</span><span class="an-val en">約<b>12,500</b>円</span><span class="an-sub">99,800円 ÷ 8回。難関大院合格者の1対1指導</span></div>
+        <div class="an"><span class="an-lbl">ご満足いただけなければ</span><span class="an-val">全額返金</span><span class="an-sub">保証1。リスクなく始められます</span></div>
+      </div>
+      <p class="price-note">※キャンペーンの適用条件・期間は無料説明会でご案内します。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Flow ===== -->
+<section class="sec-tint" id="flow">
+  <div class="watermark" aria-hidden="true">FLOW</div>
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Flow</span>
+      <h2 class="sec-title">お申し込みから受講開始まで</h2>
+    </div>
+    <div class="flow" data-stagger>
+      <div class="flow-line" aria-hidden="true"><span></span></div>
+      <div class="fl now"><span class="now-tag">今ここ</span><div class="n">1</div><h3>フォームから申込</h3><p>お名前とメールアドレスを入力するだけ。1分で完了します。</p></div>
+      <div class="fl"><div class="n">2</div><h3>日程調整のご連絡</h3><p>5営業日以内に、メールで無料説明会・初回無料体験の日程を調整します。</p></div>
+      <div class="fl"><div class="n">3</div><h3>無料説明会(Zoom)</h3><p>講義内容の詳細や講師の紹介を、自宅からオンラインで聞けます。</p></div>
+      <div class="fl"><div class="n">4</div><h3>受講スタート</h3><p>ご納得いただけたら、あなた専用の学習スケジュールで指導を開始します。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="sec-white" id="faq">
+  <div class="watermark" aria-hidden="true">FAQ</div>
+  <div class="container narrow">
+    <div class="sec-head reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2 class="sec-title">よくあるご不安にお答えします</h2>
+    </div>
+    <div class="faq" data-stagger>
+      <details>
+        <summary><span class="q">Q</span>今からでも本当に間に合いますか?<span class="pm"></span></summary>
+        <div class="a">はい。esmaは<b>全8回のオーダーメイド型</b>なので、残り期間に合わせて内容と順番を組み替えます。初回で勉強スケジュールを作成し、「今なにをやるべきか」を明確にしてから走り出せるのが強みです。</div>
+      </details>
+      <details>
+        <summary><span class="q">Q</span>志望校がまだ決まっていなくても大丈夫?<span class="pm"></span></summary>
+        <div class="a">大丈夫です。プログラムの2回目が「志望校選び」、3回目が「研究室訪問」。院試を経験した講師が、<b>入試難易度や研究室の生の情報</b>をもとに一緒に候補を絞ります。</div>
+      </details>
+      <details>
+        <summary><span class="q">Q</span>文系・外部受験・社会人でも受けられますか?<span class="pm"></span></summary>
+        <div class="a">受けられます。1,000人以上の院試相談の中で、文系・理系、内部進学・外部受験など<b>さまざまなケース</b>に対応してきました。研究計画書・志望理由書・面接対策も含まれます。</div>
+      </details>
+      <details>
+        <summary><span class="q">Q</span>オンラインだけで、続けられるか不安です<span class="pm"></span></summary>
+        <div class="a">1対1の個別指導なので、疑問はその場で解決できます。勉強スケジュールの作成と生活時間の見直しまで一緒に行うため、<b>一人で対策するより勉強時間を確保しやすい</b>のが特徴です。</div>
+      </details>
+      <details>
+        <summary><span class="q">Q</span>合わなかったら、お金は戻ってきますか?<span class="pm"></span></summary>
+        <div class="a">ご満足いただけなければ<b>全額返金保証</b>があります。さらに卒塾後も無料相談が可能です。適用条件の詳細は無料説明会でご説明します。</div>
+      </details>
+      <details>
+        <summary><span class="q">Q</span>無料説明会で勧誘されませんか?<span class="pm"></span></summary>
+        <div class="a">無理な勧誘は一切ありません。所要時間は30分程度。講義内容と講師の紹介を聞いて、<b>納得できた場合だけ</b>お申し込みください。説明会だけの参加も歓迎です。</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Form ===== -->
+<section class="sec-white" id="form">
+  <div class="watermark" aria-hidden="true">CONTACT</div>
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Contact</span>
+      <h2 class="sec-title">無料説明会のお申し込みフォーム</h2>
+    </div>
+    <div class="trust reveal">
+      <span>受講生満足度 96%</span>
+      <span>院試相談実績 1,000人+</span>
+      <span>全額返金保証つき</span>
+      <span>無理な勧誘なし</span>
+    </div>
+    <p class="last-push reveal">迷っているなら、<span class="t">まず話を聞くだけ</span>で大丈夫です。<br>申し込みは<span class="t">名前とメールだけ・1分</span>で完了します。</p>
+    <div class="form-steps reveal" aria-hidden="true">
+      <span class="on"><i>1</i>フォーム入力(1分)</span><span class="sep"></span><span><i>2</i>日程調整メール</span><span class="sep"></span><span><i>3</i>無料説明会</span>
+    </div>
+    <p class="form-intro reveal">まずは、オンライン(Zoom)にて、講義内容の詳細の説明や講師の紹介を自宅で聞くことができます。(無料)<br>講義の詳細を知りたい方は、以下のフォームに「名前」「メールアドレス」を記入し、お気軽にお申し込みください。</p>
+    <div class="form-note reveal">
+      <b>※メールが届かない方が増えています!</b><br>
+      「esmastudysmart@gmail.com」のアドレスから返信させていただきますので、迷惑メール解除の設定をお願いいたします。又は、随時迷惑メールフォルダなどのご確認をお願いいたします。
+    </div>
+    <div class="form-wrap reveal">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdrgzkj5Mb2fGlMAe--o2mN5DNMC3728vlooCD6ATUFbs2VNg/viewform?embedded=true" title="無料説明会お申し込みフォーム" loading="lazy">読み込んでいます…</iframe>
+    </div>
+    <p class="form-fallback">フォームが表示されない場合は <a href="https://docs.google.com/forms/d/e/1FAIpQLSdrgzkj5Mb2fGlMAe--o2mN5DNMC3728vlooCD6ATUFbs2VNg/viewform" target="_blank" rel="noopener">こちらから開く</a></p>
+    <p class="form-footer">※フォーム申込後、5営業日以内に初回無料体験の日程調整のご連絡をいたします。</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="orb o1" aria-hidden="true"></div>
+  <div class="container" style="position:relative">
+    <a href="#top" class="logo" aria-label="ESMA トップへ">
+      <svg viewBox="0 0 100 92" aria-hidden="true" class="pyra" width="30" height="28">
+        <polygon class="tier top" points="50,4 61.4,24 38.6,24"/>
+        <polygon class="tier" points="36.9,27 63.1,27 74,46 26,46"/>
+        <polygon class="tier" points="24.3,49 75.7,49 86.6,68 13.4,68"/>
+        <polygon class="tier" points="11.7,71 88.3,71 98,88 2,88"/>
+      </svg>
+      <span class="logo-text">ESMA</span>
+    </a>
+    <div class="footer-links">
+      <a href="#problems">お悩み</a>
+      <a href="#features">特徴</a>
+      <a href="#program">プログラム</a>
+      <a href="#price">料金</a>
+      <a href="#form">無料説明会</a>
+    </div>
+    <p class="copy">&copy; 2021-2026 オンライン院試塾 esma.</p>
+  </div>
+</footer>
+
+<!-- ===== Sticky CTA (mobile) ===== -->
+<div class="sticky-cta" id="stickyCta">
+  <a href="#form" class="btn">今すぐ無料説明会に申し込む</a>
+</div>
+
+<script>
+(() => {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  /* ---- scroll progress + header state ---- */
+  const bar = document.getElementById('progressBar');
+  const header = document.getElementById('header');
+  const onScroll = () => {
+    const h = document.documentElement;
+    const p = h.scrollTop / (h.scrollHeight - h.clientHeight || 1);
+    bar.style.transform = `scaleX(${p})`;
+    header.classList.toggle('scrolled', h.scrollTop > 24);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ---- reveal (single + stagger) ---- */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      el.classList.add('in');
+      if (el.hasAttribute('data-stagger')) {
+        [...el.children].forEach((c, i) => { c.style.transitionDelay = `${i * 90}ms`; });
+      }
+      el.querySelectorAll('[data-count]').forEach(countUp);
+      io.unobserve(el);
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal, [data-stagger], .sec-head').forEach((el) => io.observe(el));
+
+  /* ---- count up ---- */
+  function countUp(el) {
+    if (el.dataset.done) return;
+    el.dataset.done = '1';
+    const target = +el.dataset.count;
+    if (reduce) { el.textContent = target.toLocaleString(); return; }
+    const dur = 1400, start = performance.now();
+    const step = (now) => {
+      const t = Math.min(1, (now - start) / dur);
+      const eased = 1 - Math.pow(1 - t, 3);
+      el.textContent = Math.round(target * eased).toLocaleString();
+      if (t < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+  // hero counters fire after the entrance animation
+  setTimeout(() => document.querySelectorAll('.hero [data-count]').forEach(countUp), 900);
+
+  /* ---- hero parallax (mouse) ---- */
+  const hero = document.getElementById('hero');
+  const layers = hero.querySelectorAll('[data-depth]');
+  if (fine && !reduce) {
+    let tx = 0, ty = 0, cx = 0, cy = 0, raf;
+    hero.addEventListener('mousemove', (e) => {
+      const r = hero.getBoundingClientRect();
+      tx = (e.clientX - r.left) / r.width - .5;
+      ty = (e.clientY - r.top) / r.height - .5;
+      if (!raf) raf = requestAnimationFrame(tick);
+    });
+    function tick() {
+      cx += (tx - cx) * .08; cy += (ty - cy) * .08;
+      layers.forEach((l) => {
+        const d = parseFloat(l.dataset.depth) * 1000;
+        l.style.transform = `translate3d(${cx * d}px, ${cy * d}px, 0)`;
+      });
+      raf = (Math.abs(tx - cx) > .001 || Math.abs(ty - cy) > .001) ? requestAnimationFrame(tick) : null;
+    }
+  }
+
+  /* ---- 3D tilt on cards ---- */
+  if (fine && !reduce) {
+    document.querySelectorAll('.tilt').forEach((card) => {
+      const max = parseFloat(card.dataset.tilt || 6);
+      card.addEventListener('mousemove', (e) => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - .5;
+        const y = (e.clientY - r.top) / r.height - .5;
+        card.style.transition = 'transform .1s';
+        card.style.transform = `perspective(900px) rotateX(${-y * max}deg) rotateY(${x * max}deg) translateY(-6px)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transition = 'transform .5s cubic-bezier(.2,.8,.2,1)';
+        card.style.transform = '';
+      });
+    });
+  }
+
+  /* ---- deadline countdown: nearest of winter(2/1) / summer(8/1) exam season ---- */
+  (() => {
+    const now = new Date();
+    const y = now.getFullYear();
+    const cands = [
+      { d: new Date(y, 1, 1), s: '冬入試シーズン(2月)' }, { d: new Date(y, 7, 1), s: '夏入試シーズン(8月)' },
+      { d: new Date(y + 1, 1, 1), s: '冬入試シーズン(2月)' }, { d: new Date(y + 1, 7, 1), s: '夏入試シーズン(8月)' },
+    ].filter((c) => c.d > now).sort((a, b) => a.d - b.d)[0];
+    const days = Math.ceil((cands.d - now) / 86400000);
+    document.getElementById('dlSeason').textContent = cands.s;
+    const el = document.getElementById('dlDays');
+    setTimeout(() => {
+      if (reduce) { el.textContent = days; return; }
+      const start = performance.now(), dur = 1200;
+      const step = (t) => { const p = Math.min(1, (t - start) / dur); el.textContent = Math.round(days * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(step); };
+      requestAnimationFrame(step);
+    }, 900);
+  })();
+
+  /* ---- 30sec self check ---- */
+  (() => {
+    const ans = {};
+    const result = document.getElementById('diagResult');
+    const T = {
+      fixed: { t: '志望校が決まっている', s: ['1 勉強スケジュール作成', '5 各教科の勉強法', '8 面接・口頭試問対策'] },
+      some:  { t: '候補を絞る段階', s: ['2 志望校選び', '3 研究室訪問', '4 全体の勉強法'] },
+      none:  { t: '志望校探しから', s: ['2 志望校選び', '3 研究室訪問', '7 研究計画書・志望理由書'] },
+    };
+    const P = {
+      short: { t: '短期集中', b: '残り期間が短いほど「やらないこと」を決めるのが合否を分けます。初回で優先順位を固め、出題傾向に絞って対策します。' },
+      mid:   { t: '半年計画', b: '半年あれば十分に逆転可能です。前半で基礎と情報収集、後半で過去問と面接対策、と段階的に組み立てます。' },
+      long:  { t: '余裕あり', b: '今から始める人が最も有利です。志望校の選択肢を広げつつ、TOEIC/TOEFLなど時間のかかる対策から先に着手できます。' },
+    };
+    const render = () => {
+      if (!ans.goal || !ans.time) return;
+      const g = T[ans.goal], p = P[ans.time];
+      document.getElementById('drTitle').textContent = `あなたは「${g.t} × ${p.t}」タイプ`;
+      document.getElementById('drBody').textContent = p.b;
+      document.getElementById('drSteps').innerHTML = g.s.map((x) => `<span>${x}</span>`).join('');
+      const first = result.hidden;
+      result.hidden = false;
+      if (first) setTimeout(() => result.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'nearest' }), 50);
+    };
+    document.querySelectorAll('.dq').forEach((q) => {
+      q.querySelectorAll('.chip').forEach((c) => c.addEventListener('click', () => {
+        q.querySelectorAll('.chip').forEach((x) => x.classList.remove('on'));
+        c.classList.add('on');
+        ans[q.dataset.q] = c.dataset.v;
+        render();
+      }));
+    });
+  })();
+
+  /* ---- testimonial marquee: duplicate cards for seamless loop ---- */
+  const track = document.getElementById('tmTrack');
+  track.innerHTML += track.innerHTML;
+
+  /* ---- sticky CTA (mobile) ---- */
+  const sticky = document.getElementById('stickyCta');
+  const form = document.getElementById('form');
+  let heroVisible = true, formVisible = false;
+  const update = () => sticky.classList.toggle('show', !heroVisible && !formVisible);
+  new IntersectionObserver(([e]) => { heroVisible = e.isIntersecting; update(); }, { threshold: 0.1 }).observe(hero);
+  new IntersectionObserver(([e]) => { formVisible = e.isIntersecting; update(); }, { threshold: 0.05 }).observe(form);
+
+  /* ---- smooth scroll with header offset ---- */
+  document.querySelectorAll('a[href^="#"]').forEach((a) => {
+    a.addEventListener('click', (ev) => {
+      const id = a.getAttribute('href');
+      if (id === '#') return;
+      const target = document.querySelector(id);
+      if (!target) return;
+      ev.preventDefault();
+      const y = target.getBoundingClientRect().top + window.scrollY - 68;
+      window.scrollTo({ top: y, behavior: reduce ? 'auto' : 'smooth' });
+    });
+  });
+})();
+</script>
+</body>
+</html>
