@@ -522,6 +522,10 @@
   }
   .chip:hover { transform: translateY(-2px); border-color: rgba(15,181,166,.5); }
   .chip.on { background: linear-gradient(90deg, var(--teal), var(--green)); border-color: transparent; color: #fff; box-shadow: 0 8px 18px rgba(15,181,166,.35); }
+  .dq.await .dq-title::after { content: "あと1問で診断結果が出ます"; margin-left: 8px; font-size: 12px; font-weight: 700; color: var(--pink); }
+  .dq.await .chip { animation: chip-nudge 1.6s ease-in-out infinite; border-color: rgba(236,64,122,.45); }
+  .dq.await .chip:nth-child(2) { animation-delay: .15s; } .dq.await .chip:nth-child(3) { animation-delay: .3s; }
+  @keyframes chip-nudge { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
   .diag-result { margin-top: 24px; padding: 24px 20px; border-radius: 18px; text-align: center;
     background: linear-gradient(135deg, #effaf8, #fff5f8); border: 1px solid rgba(15,181,166,.3);
     animation: rise .6s var(--ease); }
@@ -1548,9 +1552,25 @@
         q.querySelectorAll('.chip').forEach((x) => x.classList.remove('on'));
         c.classList.add('on');
         ans[q.dataset.q] = c.dataset.v;
+        q.classList.remove('await');
         render();
       }));
     });
+    // 外部(ブログのバナー等)から ?goal=fixed&time=short で来た場合は、選択済みにして診断の続きから始める
+    const qs = new URLSearchParams(location.search);
+    const preset = ['goal', 'time'].filter((k) => qs.get(k));
+    if (preset.length) {
+      preset.forEach((k) => {
+        const chip = document.querySelector(`.dq[data-q="${k}"] .chip[data-v="${qs.get(k)}"]`);
+        if (chip) chip.click();
+      });
+      document.querySelectorAll('.dq').forEach((q) => { if (!ans[q.dataset.q]) q.classList.add('await'); });
+      setTimeout(() => {
+        const target = ans.goal && ans.time ? result : document.getElementById('check');
+        const y = target.getBoundingClientRect().top + window.scrollY - 76;
+        window.scrollTo({ top: y, behavior: 'auto' });
+      }, 150);
+    }
   })();
 
   /* ---- testimonial marquee: duplicate cards for seamless loop ---- */
