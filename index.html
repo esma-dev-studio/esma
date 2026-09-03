@@ -11,6 +11,21 @@
 <meta property="og:site_name" content="オンライン院試塾 esma">
 <meta property="og:locale" content="ja_JP">
 <meta name="theme-color" content="#0fb5a6">
+<!-- Google アナリティクス 4: 測定ID(G-XXXXXXXXXX)を下の1か所に入れると計測が始まる。未設定なら何も読み込まない -->
+<script>window.ESMA_GA_ID = '';</script>
+<script>
+(function () {
+  var id = window.ESMA_GA_ID;
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { window.dataLayer.push(arguments); }
+  window.gtag = gtag;
+  if (!id || id.indexOf('G-') !== 0) return;
+  var s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(id);
+  document.head.appendChild(s);
+  gtag('js', new Date());
+  gtag('config', id, { send_page_view: true });
+})();
+</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 92'%3E%3Cpolygon points='50,4 61.4,24 38.6,24' fill='%23ffd400'/%3E%3Cpolygon points='36.9,27 63.1,27 74,46 26,46' fill='%231aa9dc'/%3E%3Cpolygon points='24.3,49 75.7,49 86.6,68 13.4,68' fill='%231aa9dc'/%3E%3Cpolygon points='11.7,71 88.3,71 98,88 2,88' fill='%231aa9dc'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1420,6 +1435,29 @@
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
+  /* ---- 計測(GA4)。測定ID未設定でも dataLayer に積むだけで安全に動く ---- */
+  const track = (name, params) => { try { window.gtag ? window.gtag('event', name, params || {}) : (window.dataLayer = window.dataLayer || []).push({ event: name, ...(params || {}) }); } catch (_) {} };
+  const ctaLocation = (a) => {
+    if (a.closest('.header')) return 'header';
+    if (a.closest('.sticky-cta')) return 'sticky';
+    if (a.closest('.diag-result')) return 'self_check';
+    const sec = a.closest('section'); return sec ? (sec.id || sec.className.split(' ')[0]) : 'unknown';
+  };
+  document.querySelectorAll('a[href="#form"]').forEach((a) => a.addEventListener('click', () => track('cta_click', { cta_location: ctaLocation(a), cta_text: a.textContent.trim().slice(0, 40) })));
+  document.querySelectorAll('.form-fallback a, .form-wrap iframe').forEach((el) => el.addEventListener('click', () => track('form_open_external', {})));
+  const seen = new Set();
+  const sectionIo = new IntersectionObserver((entries) => entries.forEach((e) => {
+    if (!e.isIntersecting || seen.has(e.target.id)) return;
+    seen.add(e.target.id); track('section_view', { section: e.target.id });
+    if (e.target.id === 'form') track('form_reached', {});
+  }), { threshold: 0.3 });
+  ['results', 'price', 'faq', 'form'].forEach((id) => { const el = document.getElementById(id); if (el) sectionIo.observe(el); });
+  (() => {
+    const ref = document.referrer || '';
+    const qs = new URLSearchParams(location.search);
+    if (ref.includes('kuroma-akuto.com') || qs.get('goal') || qs.get('time')) track('blog_referral', { referrer_host: ref ? new URL(ref).host : '(none)', preset_goal: qs.get('goal') || '', preset_time: qs.get('time') || '' });
+  })();
+
   /* ---- scroll progress + header state ---- */
   const bar = document.getElementById('progressBar');
   const header = document.getElementById('header');
@@ -1544,6 +1582,7 @@
       document.getElementById('drBody').textContent = p.b;
       document.getElementById('drSteps').innerHTML = g.s.map((x) => `<span>${x}</span>`).join('');
       const first = result.hidden;
+      if (first) track('self_check_complete', { goal: ans.goal, time: ans.time });
       result.hidden = false;
       if (first) setTimeout(() => result.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'nearest' }), 50);
     };
@@ -1553,6 +1592,7 @@
         c.classList.add('on');
         ans[q.dataset.q] = c.dataset.v;
         q.classList.remove('await');
+        track('self_check_answer', { question: q.dataset.q, answer: c.dataset.v });
         render();
       }));
     });
