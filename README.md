@@ -47,3 +47,10 @@ npx --yes netlify-cli@latest deploy --prod --dir . --site d8613ec3-4ad3-4679-916
 ```
 
 GitHub にプッシュしただけで自動更新したい場合は、Netlify のダッシュボード(Site configuration → Build & deploy → Link repository)で `esma-dev-studio/esma` を連携する。
+
+## アクセス解析(GA4)
+
+- `index.html` 冒頭の `window.ESMA_GA_ID = '';` に GA4 の測定ID(`G-XXXXXXXXXX`)を入れると計測が始まる。空のままなら GA のスクリプトは読み込まれない
+- 送信イベント: `cta_click`(cta_location: header / hero / sticky / self_check / cta-band など)、`self_check_answer`、`self_check_complete`、`section_view`(results / price / faq / form)、`form_reached`、`form_open_external`、`blog_referral`(ESCAPEブログ経由)
+- GA4 側では `form_reached` と `self_check_complete` を「キーイベント(コンバージョン)」に設定するとレポートで見やすい
+- 申込の実数は Google フォームの回答一覧で確認する(iframe 内の送信は GA4 では取れない)
