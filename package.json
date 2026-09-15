@@ -1,0 +1,24 @@
+{
+  "name": "esma-lp",
+  "version": "1.0.0",
+  "description": "GitHub Pages でそのまま公開できる、依存ライブラリなしの単一HTML LPです。",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/esma-dev-studio/esma.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/esma-dev-studio/esma/issues"
+  },
+  "homepage": "https://github.com/esma-dev-studio/esma#readme",
+  "private": true,
+  "dependencies": {
+    "@netlify/blobs": "^11.1.0"
+  }
+}

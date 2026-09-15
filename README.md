@@ -54,3 +54,11 @@ GitHub にプッシュしただけで自動更新したい場合は、Netlify �
 - 送信イベント: `cta_click`(cta_location: header / hero / sticky / self_check / cta-band など)、`self_check_answer`、`self_check_complete`、`section_view`(results / price / faq / form)、`form_reached`、`form_open_external`、`blog_referral`(ESCAPEブログ経由)
 - GA4 側では `form_reached` と `self_check_complete` を「キーイベント(コンバージョン)」に設定するとレポートで見やすい
 - 申込の実数は Google フォームの回答一覧で確認する(iframe 内の送信は GA4 では取れない)
+
+## 簡易PVカウンター(Netlify Functions + Blobs)
+
+- 2026-09-15 から稼働。LP が `/api/hit` に閲覧(pv)とイベント(ev)を送り、`netlify/functions/hit.mjs` が 1件=1レコードで Blobs(ストア `esma-pv`)に追記する
+- 集計: `GET /api/stats?key=<STATS_KEY>&days=30`(`netlify/functions/stats.mjs`)。合言葉は Netlify の環境変数 `STATS_KEY`。ローカルは `%APPDATA%\netlify\esma_stats_key.txt`
+- レポート: `node tools/pv_report.mjs 30` で日別の PV・訪問者・ブログ経由・診断完了・フォーム到達・端末をMarkdown表で出力し、`reports/` に生JSONを保存
+- ボット(UAに bot/crawl/curl 等)は除外。訪問者はIP+UAの日替わりハッシュで数える(個人情報は保存しない)
+- GA4 を後から入れても併用できる(`index.html` の `ESMA_GA_ID`)

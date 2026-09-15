@@ -1436,7 +1436,26 @@
   const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   /* ---- 計測(GA4)。測定ID未設定でも dataLayer に積むだけで安全に動く ---- */
-  const sendEvent = (name, params) => { try { window.gtag ? window.gtag('event', name, params || {}) : (window.dataLayer = window.dataLayer || []).push({ event: name, ...(params || {}) }); } catch (_) {} };
+  /* 簡易カウンター(Netlify Functions /api/hit)。ローカルプレビューでは送らない */
+  const canHit = /^https?:$/.test(location.protocol) && !/localhost|127\.0\.0\.1/.test(location.host);
+  const hit = (payload) => {
+    if (!canHit) return;
+    try {
+      const data = JSON.stringify(payload);
+      if (navigator.sendBeacon) navigator.sendBeacon('/api/hit', new Blob([data], { type: 'application/json' }));
+      else fetch('/api/hit', { method: 'POST', body: data, keepalive: true, headers: { 'Content-Type': 'application/json' } });
+    } catch (_) {}
+  };
+  (() => {
+    const q = new URLSearchParams(location.search);
+    const preset = ['goal', 'time'].filter((k) => q.get(k)).map((k) => `${k}=${q.get(k)}`).join('&');
+    hit({ t: 'pv', p: location.pathname, r: document.referrer || '', w: window.innerWidth, q: preset });
+  })();
+  const sendEvent = (name, params) => {
+    try { window.gtag ? window.gtag('event', name, params || {}) : (window.dataLayer = window.dataLayer || []).push({ event: name, ...(params || {}) }); } catch (_) {}
+    const p = params || {};
+    hit({ t: 'ev', n: name, d: p.cta_location || p.section || (p.goal ? `${p.goal}-${p.time}` : '') || (p.answer ? `${p.question}-${p.answer}` : '') });
+  };
   const ctaLocation = (a) => {
     if (a.closest('.header')) return 'header';
     if (a.closest('.sticky-cta')) return 'sticky';
