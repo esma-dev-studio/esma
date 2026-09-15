@@ -1449,7 +1449,7 @@
   (() => {
     const q = new URLSearchParams(location.search);
     const preset = ['goal', 'time'].filter((k) => q.get(k)).map((k) => `${k}=${q.get(k)}`).join('&');
-    hit({ t: 'pv', p: location.pathname, r: document.referrer || '', w: window.innerWidth, q: preset });
+    hit({ t: 'pv', p: location.pathname, r: document.referrer || '', w: Math.max(window.innerWidth || 0, (screen && screen.width) || 0), q: preset });
   })();
   const sendEvent = (name, params) => {
     try { window.gtag ? window.gtag('event', name, params || {}) : (window.dataLayer = window.dataLayer || []).push({ event: name, ...(params || {}) }); } catch (_) {}

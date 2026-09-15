@@ -2,6 +2,7 @@
 // 合言葉は環境変数 STATS_KEY か %APPDATA%\netlify\esma_stats_key.txt から読む
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 const days = Number(process.argv[2]) || 30;
 let key = process.env.STATS_KEY || "";
@@ -38,7 +39,7 @@ console.log("端末:", top(agg("devices")));
 console.log("時間帯(JST):", top(agg("hours"), 6));
 console.log("イベント:", top(agg("events"), 12));
 console.log("診断プリセット:", top(agg("presets")));
-const out = path.join(path.dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, "$1")), "..", "reports");
+const out = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "reports");
 fs.mkdirSync(out, { recursive: true });
 const file = path.join(out, `pv_${new Date().toISOString().slice(0, 10)}.json`);
 fs.writeFileSync(file, JSON.stringify(data, null, 2), "utf8");
